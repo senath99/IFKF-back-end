@@ -1,0 +1,79 @@
+package com.ITP.IFKFbackend.controller;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Collection;
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ITP.IFKFbackend.model.Equipment;
+import com.ITP.IFKFbackend.repository.EquipmentRepository;
+
+import lombok.Value;
+
+@RestController
+@RequestMapping("/IFKF")
+public class EquipmentController {
+	
+	private EquipmentRepository equipmentRepository;
+
+	public EquipmentController(EquipmentRepository equipmentRepository) {
+		super();
+		this.equipmentRepository = equipmentRepository;
+	}
+	
+	@GetMapping("/equipment")
+	Collection<Equipment> equipment()
+	{
+		return equipmentRepository.findAll();
+		
+	}
+	
+	@GetMapping("/equipment/{id}")
+	ResponseEntity<?> getEquipment(@PathVariable Long id){
+	
+		Optional<Equipment> equipment = equipmentRepository.findById(id);
+		
+		return equipment.map(response -> ResponseEntity.ok().body(response))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+		
+		
+	}
+	
+	
+	@PostMapping("/equipment")
+	ResponseEntity<Equipment> createEquipment( @RequestBody Equipment equipment)throws URISyntaxException{
+		  Equipment result=  equipmentRepository.save(equipment);
+		  return ResponseEntity.created(new URI("/IFKF/equipment" + result.getId())).body(result); 
+		
+		}
+	
+	
+	@PutMapping("/equipment/{id}")
+	public ResponseEntity<Equipment> updateEquipment(
+		
+			@PathVariable long id, @RequestBody Equipment ex){
+		
+		Equipment result = equipmentRepository.save(ex);
+		
+		return new ResponseEntity<Equipment>(ex, HttpStatus.OK);
+	}
+	
+	
+	@DeleteMapping("/expense/{id}")
+	ResponseEntity<?> deleteExpense(@PathVariable Long id){
+	equipmentRepository.deleteById(id);
+	return ResponseEntity.ok().build();
+	}
+
+}
