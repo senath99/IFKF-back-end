@@ -27,7 +27,7 @@ public class Equipment {
 	
 	private int quantity;
 	
-	 @ManyToOne
-	 private SessionTest session;
+//	 @ManyToOne
+//	 private SessionTest session;
 
 }
