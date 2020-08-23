@@ -39,6 +39,15 @@ public class GradingExaminationsController {
 			return gradingExaminationRepository.findById(examCode).get();
 		}
 		
+		
+		//find exams by search query
+		@GetMapping("/exams/search/{searchText}")
+		public List<GradingExaminations> searchExams(@PathVariable String searchText){
+			return gradingExaminationRepository.searchQuery(searchText);
+		}
+		
+		
+		
 		//delete a exam recode 
 		@DeleteMapping("/exams/{examCode}")
 		public ResponseEntity<Void> deleteExam(@PathVariable String examCode){
