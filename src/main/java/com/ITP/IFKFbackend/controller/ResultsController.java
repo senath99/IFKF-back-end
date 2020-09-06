@@ -1,5 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.util.List;
 
@@ -18,6 +19,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ITP.IFKFbackend.model.Results;
 import com.ITP.IFKFbackend.repository.ResultsRepository;
+import com.ITP.IFKFbackend.service.PerfomanceReportService;
+
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -25,6 +29,9 @@ public class ResultsController {
 	
 	@Autowired
 	private ResultsRepository resultsRepository;
+	
+	@Autowired
+	private PerfomanceReportService reportService;
 	
 		//get all results data related to a particular student
 		@GetMapping("/results/all/{studentId}")
@@ -72,6 +79,19 @@ public class ResultsController {
 			
 			return ResponseEntity.created(uri).build(); 
 		}
+		
+		
+		@GetMapping("/results/report/{studentId}")
+		public String getResultsReport(@PathVariable String studentId) throws FileNotFoundException, JRException {
+			return reportService.getResultsReport(studentId);
+		}
+		
+		
+		@GetMapping("/results/examreport/{examCode}")
+		public String getExamReport(@PathVariable String examCode) throws FileNotFoundException, JRException {
+			return reportService.getExamReport(examCode);
+		}
+		
 
 
 }
