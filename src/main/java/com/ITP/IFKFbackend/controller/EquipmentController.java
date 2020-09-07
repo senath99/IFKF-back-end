@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,19 +21,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ITP.IFKFbackend.model.Equipment;
 import com.ITP.IFKFbackend.repository.EquipmentRepository;
 
-import lombok.Value;
+
 
 @RestController
 @RequestMapping("/IFKF")
 @CrossOrigin(origins = "http://localhost:3000")
 public class EquipmentController {
 	
+	@Autowired
 	private EquipmentRepository equipmentRepository;
 
 	public EquipmentController(EquipmentRepository equipmentRepository) {
 		super();
 		this.equipmentRepository = equipmentRepository;
 	}
+	
+	
 	
 	@GetMapping("/equipment")
 	Collection<Equipment> equipment()
@@ -60,19 +64,24 @@ public class EquipmentController {
 		
 		}
 	
+
 	
 	@PutMapping("/equipment/{id}")
 	public ResponseEntity<Equipment> updateEquipment(
+			@PathVariable Long id, @RequestBody Equipment equipment){
 		
-			@PathVariable long id, @RequestBody Equipment ex){
+
+		Equipment result = equipmentRepository.save(equipment);
 		
-		Equipment result = equipmentRepository.save(ex);
-		
-		return new ResponseEntity<Equipment>(ex, HttpStatus.OK);
+		return new ResponseEntity<Equipment>(equipment, HttpStatus.OK);
 	}
 	
 	
-	@DeleteMapping("/expense/{id}")
+	
+	
+	
+	
+	@DeleteMapping("/equipment/{id}")
 	ResponseEntity<?> deleteExpense(@PathVariable Long id){
 	equipmentRepository.deleteById(id);
 	return ResponseEntity.ok().build();
