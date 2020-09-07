@@ -22,3 +22,16 @@ insert into grading_examinations (exam_code, description, date) values ('BB015',
 insert into results (results_id, student_id, exam_code, date, kihon, combinations, kata, kumite, general_knowledge, theory) values (123, 'ST001', 'BB002', sysdate(), 18, 19, 18,18, 48, 49);
 insert into results (results_id, student_id, exam_code, date, kihon, combinations, kata, kumite, general_knowledge, theory) values (321, 'ST001', 'BB003', sysdate(), 18, 19, 18,18, 48, 49);
 insert into results (results_id, student_id, exam_code, date, kihon, combinations, kata, kumite, general_knowledge, theory) values (456, 'ST002', 'BB002', sysdate(), 18, 19, 18,18, 48, 49);
+
+insert into login (user_id, password, role) values ('ST001', 'student1', 'Student');
+insert into login (user_id, password, role) values ('ST002', 'student2', 'Student');
+insert into login (user_id, password, role) values ('ST003', 'student3', 'Student');
+insert into login (user_id, password, role) values ('IN001', 'in1', 'Instructor');
+insert into login (user_id, password, role) values ('IN002', 'in2', 'Instructor');
+insert into login (user_id, password, role) values ('IN003', 'in3', 'Instructor');
+insert into login (user_id, password, role) values ('OP001', 'op1', 'Operator');
+insert into login (user_id, password, role) values ('OP002', 'op2', 'Operator');
+insert into login (user_id, password, role) values ('OP003', 'op3', 'Operator');
+
+
+
