@@ -6,6 +6,5 @@ import com.ITP.IFKFbackend.model.Login;
 
 public interface LoginRepository extends JpaRepository<Login, String> {
 	
-	
 
 }

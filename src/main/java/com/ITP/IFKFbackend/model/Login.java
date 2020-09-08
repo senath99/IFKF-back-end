@@ -70,6 +70,11 @@ public class Login {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Login [userId=" + userId + ", password=" + password + ", role=" + role + "]";
+	}
 	
 	
 	

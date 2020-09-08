@@ -33,5 +33,21 @@ insert into login (user_id, password, role) values ('OP001', 'op1', 'Operator');
 insert into login (user_id, password, role) values ('OP002', 'op2', 'Operator');
 insert into login (user_id, password, role) values ('OP003', 'op3', 'Operator');
 
+insert into student (student_id, name) values ('ST001', 'Albert Ainstein');
+insert into student (student_id, name) values ('ST002', 'John');
+insert into student (student_id, name) values ('ST003', 'Jackson');
+insert into student (student_id, name) values ('ST004', 'Willson');
+insert into student (student_id, name) values ('ST005', 'Ainstein');
+insert into student (student_id, name) values ('ST006', 'Marie');
+insert into student (student_id, name) values ('ST007', 'Jhonathan');
+insert into student (student_id, name) values ('ST008', 'Wotson');
+insert into student (student_id, name) values ('ST009', 'Adem');
+insert into student (student_id, name) values ('ST010', 'Willson');
+insert into student (student_id, name) values ('ST011', 'Ainstein');
+insert into student (student_id, name) values ('ST012', 'Marie');
+insert into student (student_id, name) values ('ST013', 'Jhonathan');
+insert into student (student_id, name) values ('ST014', 'Wotson');
+insert into student (student_id, name) values ('ST015', 'Adem');
+
 
 
