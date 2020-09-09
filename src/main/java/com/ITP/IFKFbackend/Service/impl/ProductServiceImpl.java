@@ -3,6 +3,7 @@ package com.ITP.IFKFbackend.Service.impl;
 import com.ITP.IFKFbackend.Service.ProductService;
 import com.ITP.IFKFbackend.model.Product;
 import com.ITP.IFKFbackend.repository.ProductRepository;
+import com.sun.corba.se.spi.ior.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,4 +30,7 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getAll() {
         return productRepository.findAll();
     }
+
+
+
 }

@@ -52,6 +52,13 @@ public class ProductController {
         productService.deleteProduct(id);
     }
 
+    @PutMapping("/upadteItem/{id}")
+    void UpdateItem(@PathVariable String id){
+
+    }
+
+
+
 }
 
 
