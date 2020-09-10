@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -52,11 +53,32 @@ public class ProductController {
         productService.deleteProduct(id);
     }
 
-    @PutMapping("/upadteItem/{id}")
-    void UpdateItem(@PathVariable String id){
-
+    @GetMapping("/getDetails/{id}")
+    public Optional<Product> getDetailstoUpdate(@PathVariable String id) {
+        return productService.getDetails(id);
     }
 
+    @PutMapping(value = "/update", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Product UpdateProduct(@RequestParam("productname") String productname, @RequestParam("id") String id,
+                              @RequestParam("brand") String brand, @RequestParam("catogeory") String catogeory,
+                              @RequestParam("description") String description, @RequestParam("file") MultipartFile file,
+                              @RequestParam("qty") String qty, @RequestParam("price") String price) {
+        Product p = new Product();
+        try {
+            p.setProductname(productname);
+            p.setId(id);
+            p.setBrand(brand);
+            p.setCatogeory(catogeory);
+            p.setDescription(description);
+            p.setPicture(file.getBytes());
+            p.setQty(Integer.parseInt(qty));
+            p.setPrice(Double.parseDouble(price));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return productService.UpdateProduct(p);
+
+    }
 
 
 }
