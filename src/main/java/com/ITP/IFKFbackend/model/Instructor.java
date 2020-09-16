@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,14 +22,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Data
-@EqualsAndHashCode(callSuper = true)
 
-@Table(name = "Instructor")
-public class Instructor extends User {
+
+@Table(name = "Instructor") 
+public class Instructor  {
 
 	
+	 @Id
+	 private Long ID; 
 	
-	 
 	 private String fname;
 	 
 	 private String lname;

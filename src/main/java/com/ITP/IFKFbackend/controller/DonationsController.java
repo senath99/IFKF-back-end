@@ -1,5 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -26,6 +27,9 @@ import com.ITP.IFKFbackend.repository.DonationsRepository;
 import com.ITP.IFKFbackend.repository.EquipmentRepository;
 
 
+import net.sf.jasperreports.engine.JRException;
+
+
 
 
 	@RestController
@@ -35,7 +39,6 @@ import com.ITP.IFKFbackend.repository.EquipmentRepository;
 		
 		@Autowired
 		private DonationsRepository donationsRepository;
-		
 		
 	
 
@@ -56,6 +59,8 @@ import com.ITP.IFKFbackend.repository.EquipmentRepository;
 			 
 			
 		}
+		
+		
 		
 		@GetMapping("/donations/{id}")
 		ResponseEntity<?> getDonations(@PathVariable Long id){
@@ -94,7 +99,20 @@ import com.ITP.IFKFbackend.repository.EquipmentRepository;
 		donationsRepository.deleteById(id);
 		return ResponseEntity.ok().build();
 		}
+		
+		
+		@GetMapping("/search/{searchText}")
+		public List<Donations> searchDonations(@PathVariable String searchText){
+			return donationsRepository.searchQuery(searchText);
+		}
 
+		
+//		@GetMapping("/Totalquantity")
+//		public List<Donations>FindTotal(){
+//			
+//			
+//			return donationsRepository.FindTotal();
+//		}
 	}
 
 	

@@ -32,6 +32,7 @@ import lombok.NoArgsConstructor;
 public class Equipment {
 	
 	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private String Type;
@@ -42,52 +43,6 @@ public class Equipment {
 	
 	private int quantity;
 	
-//	
-//	  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	    @JoinColumn(name= "equipment_id")
-//	    private Set<Donations> donations;
-
-//	
-//	 @OneToMany (cascade =CascadeType.ALL,mappedBy="equipment",fetch = FetchType.EAGER)
-//	
-//	 private List<Donations> donations = new ArrayList<Donations>();
-//	
-	 
-	 
-//	@OneToMany(targetEntity =  Donations.class, mappedBy = "equipment", cascade = CascadeType.ALL)
-//    private <Donations> donations;
-
-//	
-//	@OneToMany(mappedBy = "equipment")
-//     private List<Donations> donations = new ArrayList<Donations>();
-
-	
-	
-
-//	 @JsonManagedReference
-//	public List<Donations> getDonations() {
-//		return donations;
-//	}
-//
-//
-//
-//	public void setDonations(List<Donations> donations) {
-//		this.donations = donations;
-//	}
-
-
-//   
-//	public List<Donations> getDonations() {
-//		return donations;
-//	}
-//
-//
-//
-//	public void setDonations(List<Donations> donations) {
-//		this.donations = donations;
-//	}
-
-
 
 	
 

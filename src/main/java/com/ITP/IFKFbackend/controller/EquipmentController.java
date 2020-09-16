@@ -3,6 +3,7 @@ package com.ITP.IFKFbackend.controller;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.ITP.IFKFbackend.model.Equipment;
 import com.ITP.IFKFbackend.repository.EquipmentRepository;
 
@@ -76,15 +76,20 @@ public class EquipmentController {
 		return new ResponseEntity<Equipment>(equipment, HttpStatus.OK);
 	}
 	
-	
-	
-	
-	
-	
+
 	@DeleteMapping("/equipment/{id}")
 	ResponseEntity<?> deleteExpense(@PathVariable Long id){
 	equipmentRepository.deleteById(id);
 	return ResponseEntity.ok().build();
 	}
+	
+	
+	
+	@GetMapping("/searchs/{searchText}")
+	public List<Equipment> searchEquip(@PathVariable String searchText){
+		
+		return equipmentRepository.searchEquip(searchText);
+	}
+
 
 }

@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
@@ -29,34 +30,22 @@ import lombok.NoArgsConstructor;
 public class Donations {
 	
 	
-	
 	@Id
+	@GeneratedValue
 	private Long Donate_ID;
 	private Date Donate_Date;
-	private int quantity;
-	
-	
-//
+	private String quantity;
 	
 	
 	@ManyToOne 
 	private Equipment equipment;
 	
+	
 	@ManyToOne 
 	private Sessions sessions;
-////	  
+  
 	
 	
-
-	
-//	@JsonBackReference
-//	public Equipment getEquipment() {
-//		return equipments;
-//	}
-//
-//	public void setEquipment(Equipment equipment) {
-//		this.equipments = equipment;
-//	}
 
 	
 

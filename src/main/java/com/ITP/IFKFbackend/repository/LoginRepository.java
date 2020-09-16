@@ -2,11 +2,9 @@ package com.ITP.IFKFbackend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ITP.IFKFbackend.model.Equipment;
-import com.ITP.IFKFbackend.model.User;
+import com.ITP.IFKFbackend.model.Login;
 
-public interface LoginRepository extends JpaRepository<User, Long>{
+public interface LoginRepository extends JpaRepository<Login, String> {
+	
 
-	
-	
 }
