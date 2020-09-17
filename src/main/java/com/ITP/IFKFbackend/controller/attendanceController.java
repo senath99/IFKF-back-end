@@ -6,10 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ITP.IFKFbackend.model.Attendance;
+import com.ITP.IFKFbackend.model.Payment;
 import com.ITP.IFKFbackend.repository.attendanceRepository;
 
 @RestController
@@ -23,4 +25,9 @@ public class attendanceController {
 	 Collection<Attendance> getAttendance(){
 		return AttendanceRepository.findAll();
 	}
+	
+	//@GetMapping("/monthlyAttendance/{studentId}")
+	//public Payment getAttendance(@PathVariable String studentId){
+	//	return AttendanceRepository.findBystudentID(studentId);
+	//}
 }

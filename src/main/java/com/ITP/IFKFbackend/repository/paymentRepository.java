@@ -7,5 +7,7 @@ import com.ITP.IFKFbackend.model.Payment;
 
 @Repository
 public interface paymentRepository extends JpaRepository<Payment, Long>{
+	
+	Payment findBystudentID(String studentID);
 
 }
