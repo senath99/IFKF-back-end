@@ -26,7 +26,7 @@ public class Sessions {
 		
 	
 		@Id
-		private Long id;
+		private String id;
 		
 		
 //		 @OneToMany (mappedBy="sessions") 
