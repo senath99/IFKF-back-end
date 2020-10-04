@@ -9,8 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.EqualsAndHashCode;
+
 @Entity
 @Table(name = "instructor")
+
 
 public class Instructor {
 	@Id
@@ -57,10 +60,11 @@ public class Instructor {
 
 
 
-	public Instructor(Long instructorId, String name, String gender, String address, String email, String nic, Date dob,
+	public Instructor(Long instructorId ,String name, String gender, String address, String email, String nic, Date dob,
 			String session, String phoneNo, String qualifications, String experience) {
 		super();
-		this.instructorId = instructorId;
+		
+		this.instructorId =instructorId;
 		this.name = name;
 		this.gender = gender;
 		this.address = address;
@@ -80,153 +84,91 @@ public class Instructor {
 		return instructorId;
 	}
 
-
-
-
 	public void setInstructorId(Long instructorId) {
 		this.instructorId = instructorId;
 	}
 
-
-
-
 	public String getName() {
 		return name;
 	}
-
-
-
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-
 
 	public String getGender() {
 		return gender;
 	}
 
-
-
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-
-
 
 	public String getAddress() {
 		return address;
 	}
 
-
-
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-
-
 
 	public String getEmail() {
 		return email;
 	}
 
-
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-
 
 	public String getNic() {
 		return nic;
 	}
 
-
-
-
 	public void setNic(String nic) {
 		this.nic = nic;
 	}
-
-
-
 
 	public Date getDob() {
 		return dob;
 	}
 
-
-
-
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-
-
-
 
 	public String getSession() {
 		return session;
 	}
 
-
-
-
 	public void setSession(String session) {
 		this.session = session;
 	}
 
-
-
-
 	public String getPhoneNo() {
 		return phoneNo;
 	}
-
-
-
 
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 
 
-
-
 	public String getQualifications() {
 		return qualifications;
 	}
-
-
-
 
 	public void setQualifications(String qualifications) {
 		this.qualifications = qualifications;
 	}
 
-
-
-
 	public String getExperience() {
 		return experience;
 	}
 
-
-
-
 	public void setExperience(String experience) {
 		this.experience = experience;
 	}
-	 
-	 
+
+
 
 }

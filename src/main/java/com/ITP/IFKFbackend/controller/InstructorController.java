@@ -19,14 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ITP.IFKFbackend.model.Instructor;
 import com.ITP.IFKFbackend.repository.InstructorRepository;
 
-
-
-
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
 
 public class InstructorController {
+	
 	@Autowired
 	private InstructorRepository instructorRepository;
 	
@@ -36,7 +34,7 @@ public class InstructorController {
 	}
 	
 	@PostMapping("/instructors")
-	public Instructor createInstructor(@RequestBody Instructor  instructor) {
+	public Instructor createInstructor(@RequestBody Instructor instructor) {
 		return instructorRepository.save(instructor);
 	}
 	
@@ -57,14 +55,19 @@ public class InstructorController {
 	
 	
 	@PutMapping("/instructors/{instructorId}")
-	public ResponseEntity<Instructor> updateEquipment(
+	public ResponseEntity<Instructor> updateInstructor(
 			@PathVariable Long instructorId, @RequestBody Instructor instructor){
 		
+
 		Instructor result = instructorRepository.save(instructor);
 		
 		return new ResponseEntity<Instructor>(instructor, HttpStatus.OK);
 	}
 	
+	@DeleteMapping("/instructors/{instructorId}")
+	ResponseEntity<?> deleteInstructors(@PathVariable Long instructorId){
+		instructorRepository.deleteById(instructorId);
+		return ResponseEntity.noContent().build();
+	}
 	
-
 }
