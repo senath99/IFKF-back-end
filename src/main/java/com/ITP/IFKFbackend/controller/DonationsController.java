@@ -24,22 +24,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ITP.IFKFbackend.model.Donations;
 import com.ITP.IFKFbackend.repository.DonationsRepository;
 import com.ITP.IFKFbackend.repository.EquipmentRepository;
-import com.ITP.IFKFbackend.Service.ReportService;
-
+import com.ITP.IFKFbackend.Service.DonationsReport;
 import net.sf.jasperreports.engine.JRException;
 
 
 
 
-	@RestController
-	@RequestMapping("/IFKF")
-	@CrossOrigin(origins = "http://localhost:3000")
-	public class DonationsController {
+@RestController
+@RequestMapping("/IFKF")
+@CrossOrigin(origins = "http://localhost:3000")
+public class DonationsController {
 		
 		@Autowired
 		private DonationsRepository donationsRepository;
 		@Autowired
-		private ReportService reportservice;
+		private DonationsReport reportservice;
 		
 	
 
