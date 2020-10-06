@@ -30,9 +30,9 @@ public class Donations {
 	@ManyToOne 
 	private Equipment equipment;
 	
-	
-	@ManyToOne 
-	private Sessions sessions;
+//	
+//	@ManyToOne 
+//	private Sessions sessions;
 
 
 	
