@@ -1,0 +1,1 @@
+insert into user (userId, password, role) values ('ST001','ITP1', 'Student');
