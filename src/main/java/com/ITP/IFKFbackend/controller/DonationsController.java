@@ -22,10 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ITP.IFKFbackend.model.Donations;
-import com.ITP.IFKFbackend.model.Equipment;
 import com.ITP.IFKFbackend.repository.DonationsRepository;
 import com.ITP.IFKFbackend.repository.EquipmentRepository;
-import com.ITP.IFKFbackend.service.ReportService;
+import com.ITP.IFKFbackend.Service.ReportService;
 
 import net.sf.jasperreports.engine.JRException;
 
