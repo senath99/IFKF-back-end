@@ -2,6 +2,7 @@ package com.ITP.IFKFbackend.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ public class Rankings {
 	@GeneratedValue
 	private Long rankingsId;
 	private String studentId;
+	@Column(name="_rank")
 	private String rank;
 	private Date date;
 	
