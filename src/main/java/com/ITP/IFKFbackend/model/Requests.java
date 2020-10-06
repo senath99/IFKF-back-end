@@ -35,11 +35,11 @@ public class Requests {
 	
 	private String status;
 	
-	@ManyToOne 
-	private Instructor instructor;
-	
-	@ManyToOne 
-	private Sessions session;
+//	@ManyToOne 
+//	private Instructor instructor;
+//	
+//	@ManyToOne 
+//	private Sessions session;
 
 	
 }
