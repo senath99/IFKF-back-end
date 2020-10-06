@@ -20,9 +20,11 @@ import com.ITP.IFKFbackend.repository.UserRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/IFKF")
+@RequestMapping("/IFKF") //  <-
+//NOTE!!! URLS HAVE BEEN CHANGED ,REMEMBER TO CHANGE TO MAKE THE FRONTEND WORK....
 
 public class UserController {
+	
 	@Autowired
 	private UserRepository userRepository;
 	
