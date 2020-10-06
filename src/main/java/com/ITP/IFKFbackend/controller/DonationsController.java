@@ -25,7 +25,7 @@ import com.ITP.IFKFbackend.model.Donations;
 import com.ITP.IFKFbackend.model.Equipment;
 import com.ITP.IFKFbackend.repository.DonationsRepository;
 import com.ITP.IFKFbackend.repository.EquipmentRepository;
-
+import com.ITP.IFKFbackend.service.ReportService;
 
 import net.sf.jasperreports.engine.JRException;
 
@@ -39,6 +39,8 @@ import net.sf.jasperreports.engine.JRException;
 		
 		@Autowired
 		private DonationsRepository donationsRepository;
+		@Autowired
+		private ReportService reportservice;
 		
 	
 
@@ -77,7 +79,7 @@ import net.sf.jasperreports.engine.JRException;
 		@PostMapping("/donations")
 		ResponseEntity<Donations> createDonations( @RequestBody Donations donations)throws URISyntaxException{
 			  Donations result=  donationsRepository.save(donations);
-			  return ResponseEntity.created(new URI("/IFKF/donations" + result.getDonate_ID())).body(result); 
+			  return ResponseEntity.created(new URI("/IFKF/donations" + result.getDonateID())).body(result); 
 		
 			}
 		
@@ -113,6 +115,11 @@ import net.sf.jasperreports.engine.JRException;
 //			
 //			return donationsRepository.FindTotal();
 //		}
+		
+		@GetMapping("/reports")
+		public String getDonationsReport() throws FileNotFoundException, JRException {
+			return reportservice.getReport();
+		}
 	}
 
 	
