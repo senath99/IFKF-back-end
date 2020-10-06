@@ -1,23 +1,21 @@
 package com.ITP.IFKFbackend.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.EqualsAndHashCode;
 
 @Entity
 
 @Table(name = "operator")
-@EqualsAndHashCode(callSuper=true)
 
-public class Operator extends User {
+
+public class Operator  {
 	
-	@Column(name = "name")
-	 private String name;
-	
-	@Column(name = "email")
-	 private String email;
+	@Id
+	private Long  operatortId;
+    private String name;
+    private String email;
 	
 	public Operator() {}
 

@@ -20,11 +20,13 @@ import com.ITP.IFKFbackend.repository.UserRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/IFKF")
 
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
+	
+	
 	
 	@GetMapping("/addusers")
 	public List<User> getAllUsers(){
@@ -38,7 +40,7 @@ public class UserController {
 	
 	
 	
-	@GetMapping("/addusers/{userId}")
+	@GetMapping("/login/{userId}")
 
 	ResponseEntity<?> getUsers(@PathVariable Long userId){
 	
