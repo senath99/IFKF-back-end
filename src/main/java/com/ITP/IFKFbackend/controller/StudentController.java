@@ -42,7 +42,7 @@ public class StudentController {
 	
 	@GetMapping("/students/{studentId}")
 
-	ResponseEntity<?> getStudents(@PathVariable Long studentId){
+	ResponseEntity<?> getStudents(@PathVariable String studentId){
 	
 		Optional<Student> students = studentRepository.findById(studentId);
 		
@@ -65,7 +65,7 @@ public class StudentController {
 	}
 	
 	@DeleteMapping("/students/{studentId}")
-	ResponseEntity<?> deleteStudents(@PathVariable Long studentId){
+	ResponseEntity<?> deleteStudents(@PathVariable String studentId){
 		studentRepository.deleteById(studentId);
 		return ResponseEntity.noContent().build();
 	}

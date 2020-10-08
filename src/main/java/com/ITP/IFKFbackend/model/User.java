@@ -14,7 +14,7 @@ public class User {
 	
 		@Id
 		@Column(name = "userId")
-		 private Long userId;
+		 private String userId;
 		
 		@Column(name = "password")
 		 private String password;
@@ -27,7 +27,7 @@ public class User {
 		}
 		
 
-		public User(Long userId, String password, String role) {
+		public User(String userId, String password, String role) {
 			super();
 			this.userId = userId;
 			this.password = password;
@@ -35,12 +35,12 @@ public class User {
 		}
 
 
-		public Long getUserId() {
+		public String getUserId() {
 			return userId;
 		}
 
 
-		public void setUserId(Long userId) {
+		public void setUserId(String userId) {
 			this.userId = userId;
 		}
 

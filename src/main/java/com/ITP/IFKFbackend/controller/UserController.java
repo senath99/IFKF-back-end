@@ -43,14 +43,8 @@ public class UserController {
 	
 	
 	@GetMapping("/login/{userId}")
-
-	ResponseEntity<?> getUsers(@PathVariable Long userId){
-	
-		Optional<User> users = userRepository.findById(userId);
-		
-		return users.map(response -> ResponseEntity.ok().body(response))
-				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-		
+	public Optional<User> getUsers(@PathVariable String userId){
+		return userRepository.findById(userId);
 		
 	}
 	
@@ -58,7 +52,7 @@ public class UserController {
 	
 	@PutMapping("/addusers/{userId}")
 	public ResponseEntity<User> updateEquipment(
-			@PathVariable Long userId, @RequestBody User user){
+			@PathVariable String userId, @RequestBody User user){
 		
 
 		User result = userRepository.save(user);
