@@ -64,7 +64,7 @@ public class RequestController {
 //	@GetMapping("/Myrequests/${userID}")
 //	List<Requests> findByinstructor_user_id(Long userID)
 //	{
-//		return requestRepository.findByinstructor_id(userID);
+//		return requestRepository.findByinstructorId(userID);
 //		
 //	}
 	
@@ -93,7 +93,7 @@ public class RequestController {
 //		
 //	}
 //	
-	
+//	
 //	@GetMapping("/searchReq/{searchText}")
 //	public List<Requests> searchDonations(@PathVariable String searchText){
 //		return requestRepository.searchQuery(searchText);
