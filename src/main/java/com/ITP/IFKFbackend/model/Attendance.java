@@ -61,15 +61,10 @@ public class Attendance {
 		
 }
 
-	public String getStudentID() {
-		return StudentID;
-	}
 
 
-	public void setStudentID(String studentID) {
-		StudentID = studentID;
-	}
+	
 
-}
+
 
 
