@@ -19,7 +19,8 @@ public class Attendance {
 
 	public Attendance() {
 		super();
-	}
+	
+  }
 
 
 
@@ -31,23 +32,14 @@ public class Attendance {
 	}
 
 
-
-	public Long getAttendanceID() {
-		return attendanceID;
-	}
-
-
-
 	public void setAttendanceID(Long attendanceID) {
 		this.attendanceID = attendanceID;
 	}
 
 
-
 	public int getNoOfdays() {
 		return noOfdays;
 	}
-
 
 
 	public void setNoOfdays(int noOfdays) {
@@ -66,7 +58,18 @@ public class Attendance {
 		this.stuId = stuId;
 	}
 	
-	
-	
-	
+		
 }
+
+	public String getStudentID() {
+		return StudentID;
+	}
+
+
+	public void setStudentID(String studentID) {
+		StudentID = studentID;
+	}
+
+}
+
+
