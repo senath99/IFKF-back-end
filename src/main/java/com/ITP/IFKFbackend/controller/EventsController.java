@@ -80,12 +80,19 @@ public class EventsController {
         return eventsRepository.findByEventMonth(eventMonth);
     }
 
+    //filter by event progress
+    @GetMapping("/events/status/{eventStatus}")
+    public List<Events> getEventsByProgress(@PathVariable String eventStatus) {
+        boolean eStatus = false;
 
-//    //filter by event progress
-//    @GetMapping("/events/filter/{eventProgress}")
-//    public List<Events> getEventsByProgress(@PathVariable int eventProgress) {
-//        return eventsRepository.findByEventProgress(eventProgress);
-//    }
+        if (eventStatus.equals("0"))
+            eStatus = false;
+        else if (eventStatus.equals("1"))
+            eStatus = true;
+
+
+        return eventsRepository.findByEventStatus(eStatus);
+    }
 
 
 }

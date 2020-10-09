@@ -19,4 +19,7 @@ public interface EventsRepository extends JpaRepository<Events, Long> {
     @Query("SELECT e FROM Events e WHERE SUBSTRING(e.eventDate,6,2) = :month" )
     List<Events> findByEventMonth(@Param("month") String eventMonth);
 
+    @Query("SELECT e FROM Events e WHERE e.isFinished = :status")
+    List<Events> findByEventStatus(@Param("status") boolean eventStatus);
+
 }
