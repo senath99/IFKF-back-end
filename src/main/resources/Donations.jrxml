@@ -25,6 +25,10 @@
 					</textElement>
 					<text><![CDATA[Donations Report]]></text>
 				</staticText>
+				<image>
+					<reportElement x="19" y="21" width="68" height="73" uuid="fb72d543-e99c-4a48-b323-34857255c2ae"/>
+					<imageExpression><![CDATA["invoice_logo.png"]]></imageExpression>
+				</image>
 				<staticText>
 					<reportElement x="99" y="52" width="126" height="30" forecolor="#000000" uuid="9ee71467-b45b-4d1d-ab8f-c773b892191b"/>
 					<textElement>
@@ -35,63 +39,6 @@
 				<line>
 					<reportElement x="20" y="99" width="552" height="1" uuid="d1bb68e6-db20-4d55-9970-559e0215b991"/>
 				</line>
-				<staticText>
-					<reportElement mode="Opaque" x="360" y="148" width="215" height="40" forecolor="#000000" backcolor="#FAA823" uuid="5e2c8236-ddd6-4807-be3a-8fa29891566f">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68ca4690-d217-4862-a614-872683881b98"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="14" isBold="true"/>
-						<paragraph lineSpacing="Single"/>
-					</textElement>
-					<text><![CDATA[Quantity]]></text>
-				</staticText>
-				<textField>
-					<reportElement x="357" y="188" width="215" height="32" uuid="da6fc6b1-7331-491d-9db4-6ce3771d5b84">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68ca4690-d217-4862-a614-872683881b98"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement mode="Opaque" x="200" y="148" width="184" height="40" forecolor="#000000" backcolor="#FAA823" uuid="cb7f513c-3d3b-493e-946e-c0741987bb51">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68ca4690-d217-4862-a614-872683881b98"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="14" isBold="true"/>
-						<paragraph lineSpacing="Single"/>
-					</textElement>
-					<text><![CDATA[Donation Date]]></text>
-				</staticText>
-				<textField>
-					<reportElement x="200" y="193" width="160" height="32" uuid="562ffa8e-9cca-4253-8044-12a6fb0f5dee">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68ca4690-d217-4862-a614-872683881b98"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{donateDate}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement mode="Opaque" x="20" y="148" width="180" height="40" forecolor="#000000" backcolor="#FAA823" uuid="138270b6-46d0-4d5b-8b4c-45b1e7d59fb5">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68ca4690-d217-4862-a614-872683881b98"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="14" isBold="true"/>
-						<paragraph lineSpacing="Single"/>
-					</textElement>
-					<text><![CDATA[Donation Date]]></text>
-				</staticText>
-				<textField>
-					<reportElement x="30" y="195" width="160" height="32" uuid="c2b8d029-a95b-4619-a37d-d894cc8800f3">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68ca4690-d217-4862-a614-872683881b98"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{donateID}]]></textFieldExpression>
-				</textField>
 			</frame>
 		</band>
 	</title>
@@ -99,10 +46,66 @@
 		<band height="13"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="47"/>
+		<band height="40">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="180" height="30" forecolor="#000000" backcolor="#FAA823" uuid="a315c4d6-a025-4087-ae64-201643003334">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c6a4ddc-e710-463a-87bf-1ac0609846ec"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Donation ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="180" y="0" width="180" height="30" forecolor="#000000" backcolor="#FAA823" uuid="a315c4d6-a025-4087-ae64-201643003334">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c6a4ddc-e710-463a-87bf-1ac0609846ec"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="360" y="0" width="194" height="30" forecolor="#000000" backcolor="#FAA823" uuid="93117046-24e1-44c6-a9ef-5e63fa9f56b8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24807fa3-1853-4607-a048-665eaaa2e15b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="37"/>
+		<band height="37">
+			<textField>
+				<reportElement x="0" y="0" width="180" height="30" uuid="e70bac3e-2043-4b3b-b90b-1d440d47ded3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c6a4ddc-e710-463a-87bf-1ac0609846ec"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{donateID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="0" width="180" height="30" uuid="e70bac3e-2043-4b3b-b90b-1d440d47ded3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c6a4ddc-e710-463a-87bf-1ac0609846ec"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="194" height="30" uuid="c46d68f6-77d4-40a6-af46-3787829c93f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24807fa3-1853-4607-a048-665eaaa2e15b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{donateDate}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band/>
@@ -110,16 +113,16 @@
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#FAA823" uuid="f22423c7-03b0-483e-9cf1-33ed8770601d"/>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#FAA823" uuid="b5c197e8-99c5-4cb1-bc39-89d22e6b1f94"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#FAA823" uuid="464eceba-67da-4f68-bd2d-136954749dd1"/>
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#FAA823" uuid="8a5dd765-d4d4-483f-8a0a-3a6be95592d7"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="0" y="4" width="100" height="13" backcolor="#FAA823" uuid="f0186a01-7cc0-4eac-8985-bf3c07e36652"/>
+				<reportElement x="0" y="4" width="100" height="13" uuid="d2db900f-e764-4c6c-ab40-9d270d8c358b"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>

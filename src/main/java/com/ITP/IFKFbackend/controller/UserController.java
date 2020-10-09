@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.ITP.IFKFbackend.model.User;
 import com.ITP.IFKFbackend.repository.UserRepository;
+
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -29,11 +29,11 @@ public class UserController {
 	private UserRepository userRepository;
 	
 	
-	
 	@GetMapping("/addusers")
 	public List<User> getAllUsers(){
 		return userRepository.findAll();
 	}
+	
 	
 	@PostMapping("/addusers")
 	public User createUser(@RequestBody User user) {
@@ -60,4 +60,10 @@ public class UserController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
+	
+	@GetMapping("/findmax")
+	public User getUserID() {
+		
+		return userRepository.findTopByOrderByUserIdDesc();
+	}
 }

@@ -25,11 +25,11 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 public class DonationsReport {
 	
 	@Autowired
-	private DonationsRepository repository;
+	private DonationsRepository donationsrepository;
 	
 	public String getReport() throws FileNotFoundException, JRException {
 		
-		   List<Donations> donations = repository.findAll();
+		   List<Donations> donations = donationsrepository.findAll();
 		//Load a file
 		
 			String path = "C:\\Users\\Senath\\Desktop\\Reports";
