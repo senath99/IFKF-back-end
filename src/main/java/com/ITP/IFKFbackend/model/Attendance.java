@@ -23,7 +23,6 @@ public class Attendance {
   }
 
 
-
 	public Attendance(Long attendanceID, int noOfdays, String stuId) {
 		super();
 		this.attendanceID = attendanceID;
