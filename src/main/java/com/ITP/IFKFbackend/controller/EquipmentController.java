@@ -1,5 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -20,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ITP.IFKFbackend.model.Equipment;
 import com.ITP.IFKFbackend.repository.EquipmentRepository;
+import com.ITP.IFKFbackend.service.DonationsReport;
+
+import net.sf.jasperreports.engine.JRException;
 
 
 
@@ -30,10 +34,15 @@ public class EquipmentController {
 	
 	@Autowired
 	private EquipmentRepository equipmentRepository;
+	
+	@Autowired
+	private DonationsReport reportservice;
+	
 
 	public EquipmentController(EquipmentRepository equipmentRepository) {
 		super();
 		this.equipmentRepository = equipmentRepository;
+		
 	}
 	
 	
@@ -91,5 +100,9 @@ public class EquipmentController {
 		return equipmentRepository.searchEquip(searchText);
 	}
 
+	@GetMapping("/equipReport")
+	public String getDonationsReport() throws FileNotFoundException, JRException {
+		return reportservice.getEquipmentReport();
+	}
 
 }
