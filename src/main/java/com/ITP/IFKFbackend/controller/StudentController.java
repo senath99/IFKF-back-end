@@ -41,15 +41,17 @@ public class StudentController {
 	
 	
 	@GetMapping("/students/{studentId}")
-
-	ResponseEntity<?> getStudents(@PathVariable Long studentId){
+	public Optional<Student> getStudent(@PathVariable String studentId) {
+		return studentRepository.findById(studentId);
+//	ResponseEntity<?> getStudents(@PathVariable String studentId){
+//		Optional<Student> students = studentRepository.findById(studentId);
+//		return students.map(response -> ResponseEntity.ok().body(response))
+//				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 	
-		Optional<Student> students = studentRepository.findById(studentId);
-		
-		return students.map(response -> ResponseEntity.ok().body(response))
-				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-		
-		
+	@GetMapping("/students/id")
+	public Student getStudentId(){
+		return studentRepository.findTopByOrderByStudentIdDesc();
 	}
 	
 	
@@ -65,7 +67,7 @@ public class StudentController {
 	}
 	
 	@DeleteMapping("/students/{studentId}")
-	ResponseEntity<?> deleteStudents(@PathVariable Long studentId){
+	ResponseEntity<?> deleteStudents(@PathVariable String studentId){
 		studentRepository.deleteById(studentId);
 		return ResponseEntity.noContent().build();
 	}

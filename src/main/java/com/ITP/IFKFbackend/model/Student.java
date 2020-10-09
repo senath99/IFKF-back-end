@@ -15,7 +15,7 @@ public class Student {
 	
 	@Id
 	@Column(name = "studentId")
-	 private Long  studentId;
+	 private String  studentId;
 	
 	@Column(name = "name")
 	 private String name;
@@ -47,7 +47,7 @@ public class Student {
 		 
 	 }
 	   
-	 public Student(Long studentId, String name, String gender, String address, String email, String nic, Date dob,
+	 public Student(String studentId, String name, String gender, String address, String email, String nic, Date dob,
 			String session, String phoneNo) {
 		super();
 		this.studentId = studentId;
@@ -62,10 +62,10 @@ public class Student {
 	}
 	 
 	 
-	public Long getStudentId() {
+	public String getStudentId() {
 		return studentId;
 	}
-	public void setStudentId(Long studentId) {
+	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
 	public String getName() {
