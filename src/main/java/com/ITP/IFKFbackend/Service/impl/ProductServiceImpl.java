@@ -30,10 +30,18 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll();
     }
 
+
+
     @Override
     public Optional<Product> getDetails(String id) {
         return productRepository.findById(id);
     }
+
+    @Override
+    public List<Product> SearchDetails(String productname) {
+        return productRepository.search(productname);
+    }
+
 
     @Override
     public Product UpdateProduct(Product p) {

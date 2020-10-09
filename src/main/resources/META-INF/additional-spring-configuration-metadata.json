@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "org.hibernate.dialect.MySQL5Dialect",
+      "type": "java.lang.String",
+      "description": "Description for org.hibernate.dialect.MySQL5Dialect."
+    },
+    {
+      "name": "hibernate.dialect",
+      "type": "java.lang.String",
+      "description": "Description for hibernate.dialect."
+    }
+  ] }

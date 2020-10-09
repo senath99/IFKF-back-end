@@ -1,5 +1,4 @@
 package com.ITP.IFKFbackend.controller;
-
 import com.ITP.IFKFbackend.Service.ProductService;
 import com.ITP.IFKFbackend.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +46,9 @@ public class ProductController {
     public List<Product> getAll() {
         return productService.getAll();
     }
+
+    @GetMapping("/searchbyname/{keyword}")
+    public List<Product>SearchByname(@PathVariable String keyword ){return productService.SearchDetails(keyword);}
 
     @DeleteMapping("/deleteItem/{id}")
     void deleteProduct(@PathVariable String id) {

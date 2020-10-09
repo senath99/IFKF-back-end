@@ -1,6 +1,11 @@
 package com.ITP.IFKFbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Product {
@@ -16,7 +21,23 @@ public class Product {
     private byte[] picture;
     private double price;
     private int qty;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "product")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Set<Cart> cart;
+
     public Product() {
+    }
+
+    public Product(String id, String productname, String brand, String catogeory, String description, byte[] picture, double price, int qty) {
+        this.id = id;
+        this.productname = productname;
+        this.brand = brand;
+        this.catogeory = catogeory;
+        this.description = description;
+        this.picture = picture;
+        this.price = price;
+        this.qty = qty;
     }
 
     public String getId() {
@@ -81,5 +102,17 @@ public class Product {
 
     public void setQty(int qty) {
         this.qty = qty;
+    }
+
+    public Set<Cart> getCart() {
+        return cart;
+    }
+
+    public void setCart(Set<Cart> cart) {
+        for (Cart c : cart
+        ) {
+            c.setProduct(this);
+        }
+        this.cart = cart;
     }
 }

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orderlistjrxml" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba1c2fcf-4c66-4d60-9df8-cfc83011c3a1">
+    <property name="template.engine" value="tabular_template"/>
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+    <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+    <style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F0EFEF"/>
+        </conditionalStyle>
+    </style>
+    <style name="Table">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+            <topPen lineWidth="1.0" lineColor="#000000"/>
+            <leftPen lineWidth="1.0" lineColor="#000000"/>
+            <bottomPen lineWidth="1.0" lineColor="#000000"/>
+            <rightPen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_CH" mode="Opaque" backcolor="#000000">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style backcolor="#D8D8D8"/>
+        </conditionalStyle>
+    </style>
+    <subDataset name="tableDataset" uuid="1bd363bd-a9ca-4f11-a59a-c701cd685fd4">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+
+        <field name="order_id" class="java.lang.Integer">
+        </field>
+        <field name="product_id" class="java.lang.String">
+        </field>
+        <field name="productname" class="java.lang.String">
+        </field>
+        <field name="brand" class="java.lang.String">
+        </field>
+        <field name="email" class="java.lang.String">
+        </field>
+        <field name="descriptions" class="java.lang.String">
+        </field>
+        <field name="Address" class="java.lang.String">
+        </field>
+        <field name="Total_amount" class="java.lang.String">
+        </field>
+        <field name="purchase_date" class="java.lang.String">
+        </field>
+        <field name="qty" class="java.lang.String">
+        </field>
+        <field name="REQUIREDDATE" class="java.lang.String">
+        </field>
+    </subDataset>
+
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+
+
+    <title>
+        <band height="102" splitType="Stretch">
+            <image>
+                <reportElement x="725" y="0" width="77" height="102" uuid="1639351a-2867-41e6-8aff-a8cdb9ba0e01"/>
+                <imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+            </image>
+            <frame>
+                <reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="75968b5b-d9b9-408c-944c-158c077dc5cf"/>
+                <staticText>
+                    <reportElement style="Title" x="0" y="0" width="370" height="66" uuid="77409e86-3434-4dd2-a3fe-5b83030a0cea"/>
+                    <box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+                    <textElement verticalAlignment="Bottom">
+                        <font isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[ORDERS]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="3a7d8fe4-20ac-4134-b16f-10c7ae3547f4"/>
+                    <textElement textAlignment="Right">
+                        <font size="22" isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[Report of Orders]]></text>
+                </staticText>
+            </frame>
+            <frame>
+                <reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="9ea0e7ef-8dfd-40bf-93aa-5a8062ba1296"/>
+                <textField pattern="EEEEE dd MMMMM yyyy">
+                    <reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="f5694cda-f223-4906-b871-45f8c39b819f"/>
+                    <textElement textAlignment="Right">
+                        <font size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </title>
+
+    <pageFooter>
+        <band height="25" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="6a6468e3-8ed5-464b-a7c0-f8f72f55c11a"/>
+                <textField evaluationTime="Report">
+                    <reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="f5b10cde-b73f-438f-9bf0-9f9f1b3fe2bc"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="6fcabcd3-d065-4c6e-81b9-192b82515f9c"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+                </textField>
+                <textField pattern="EEEEE dd MMMMM yyyy">
+                    <reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="32d7a7f7-06aa-4722-b874-33574b44dff1"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </pageFooter>
+
+    <summary>
+        <band height="200" splitType="Stretch">
+            <property name="local_mesure_unitheight" value="pixel"/>
+            <componentElement>
+                <reportElement x="0" y="0" width="802" height="200" uuid="d77ad424-e826-4204-b40c-7971d9e5d55c">
+                    <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+                    <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+                </reportElement>
+
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="tableDataset" uuid="98bde4af-e992-4b1c-b128-a602fc895a6c">
+                        <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                    </datasetRun>
+                    <jr:column width="72" uuid="f3adbaf1-3cc1-4996-b31e-33c9535d49b9">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="2a3f7898-5610-4106-a7e5-7c9f884cdffc"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[Order_id]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="86796874-ca27-4e92-b4fa-09cb96c2774c"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{ORDERID}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="46d9e968-3898-4576-a193-44be807035ae">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="3553330d-d8e6-49a7-bfec-a7d6f611d6fb"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[Product_id]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="7d3b2f59-dded-4ca3-b15d-80602d9d1946"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="ceb4ae52-2640-433c-95c8-e1038197e23e">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="da0c8b2a-f828-4d2f-8441-bc7d40a71a69"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[Product]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="e1864536-00a6-4ffb-83e0-c9ab2a39f15b"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{SHIPADDRESS}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="0ba9f6b7-6c4d-4f1d-b6f6-003351e57d53">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="467e1ceb-3794-4f79-9db0-a32b6c1cde28"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[Brand]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="8c764018-375c-401a-86e1-339c399a61bc"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{SHIPCITY}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="2695ad53-a946-43f2-867b-6ff0f05078f5">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="ea960d49-263a-4adb-afa9-acf249a92068"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[Amount]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="3e110379-70fa-419b-a0c4-b44df262ff8e"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{SHIPREGION}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="bfeba8a6-768c-4210-bbaf-4f8b1d71cfe4">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="b68becd5-0033-4e9e-a913-20c08c3f8988"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[QTY]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="bc7082a3-b7c5-404e-9440-041b843fed53"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{SHIPPOSTALCODE}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="20c444c1-8cf9-4c0e-a94a-cb6f4224bf50">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="26d020af-e863-41ff-b021-777f9f186d6f"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[Details]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="9af38f2f-a540-48d0-bb50-2b95bbbdb884"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{SHIPCOUNTRY}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="d71805f3-cff1-4c0f-831e-79ec52202410">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="f36d5598-8247-4940-8c11-c4ca24a726a0"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[Purchase_Date]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="80e3b218-155e-4ed9-b1e3-418f9750037f"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{FREIGHT}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="db3aec98-1c9a-4f0e-93d0-d6971edd6414">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="e60ba4ee-16d3-46bf-bf94-b78b4b8dbd9b"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[SHIPVIA]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="31f61fc6-34dd-45d8-a0ad-dc7facfefbde"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{SHIPVIA}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="08eefa7d-7b51-4527-8706-bb28ae2173f4">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="bbc615a3-ed78-4a71-aca5-5b37d2ee88d6"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[SHIPPEDDATE]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="fff7f241-9fa2-44ab-ad29-8ea23cb8e6ac"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{SHIPPEDDATE}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="72" uuid="dcf5c005-c0d0-404e-91a7-882511512f63">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="cf694a66-33a7-460b-98bc-a3bf933f696f"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[REQUIREDDATE]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="62834bfb-f57a-4839-af72-0c173a0ac5f9"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="DejaVu Sans" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{REQUIREDDATE}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
+        </band>
+    </summary>
+</jasperReport>
