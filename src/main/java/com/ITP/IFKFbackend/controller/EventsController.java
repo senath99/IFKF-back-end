@@ -20,8 +20,6 @@ public class EventsController {
     @Autowired
     private EventsRepository eventsRepository;
 
-//    @Autowired
-//    private EventsService eventsService;
 
     //retrieve all events
     @GetMapping("/events/list")
@@ -30,13 +28,12 @@ public class EventsController {
         //return eventsService.findAll();
     }
 
-//    //retrieve specific event id
+    //retrieve specific event id
     @GetMapping("/events/{eventId}")
     public ResponseEntity<?> getEvent(@PathVariable Long eventId) {
-    	Optional<Events> events = eventsRepository.findById(eventId);
-    	return events.map(response -> ResponseEntity.ok().body(response)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        Optional<Events> events = eventsRepository.findById(eventId);
+        return events.map(response -> ResponseEntity.ok().body(response)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
-//        return eventsService.findById(id);
     }
 
     //delete an event
@@ -64,5 +61,29 @@ public class EventsController {
 
         return ResponseEntity.created(uri).build();
     }
+
+    //search an event by name
+    @GetMapping("/events/search/{eventName}")
+    public List<Events> searchEvent(@PathVariable String eventName) {
+        return eventsRepository.findEventsByEventName(eventName);
+    }
+
+    //filter by event type
+    @GetMapping("/events/filter/{eventType}")
+    public  List<Events> getEventByType(@PathVariable String eventType) {
+        return eventsRepository.findByEventType(eventType);
+    }
+
+//    //filter by event progress
+//    @GetMapping("/events/filter/{eventProgress}")
+//    public List<Events> getEventsByProgress(@PathVariable int eventProgress) {
+//        return eventsRepository.findByEventProgress(eventProgress);
+//    }
+
+
+//    @GetMapping("/exams/search/{searchText}")
+//    public List<GradingExaminations> searchExams(@PathVariable String searchText){
+//        return gradingExaminationRepository.searchQuery(searchText);
+//    }
 
 }

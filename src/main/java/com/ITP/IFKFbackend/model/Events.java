@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Entity
 public class Events {
@@ -15,7 +14,7 @@ public class Events {
     private Long eventId;
     private String eventName;
     private String eventType;
-    private Date eventDate;
+    private String eventDate;
     private LocalTime eventTime;
     private String organizer;
     private String eventDesc;
@@ -26,7 +25,7 @@ public class Events {
         super();
     }
 
-    public Events(Long eventId, String eventName, String eventType, Date eventDate, LocalTime eventTime, String organizer,
+    public Events(Long eventId, String eventName, String eventType, String eventDate, LocalTime eventTime, String organizer,
                   String eventDesc, boolean isFinished, String bgImgName) {
         super();
         this.eventId = eventId;
@@ -64,11 +63,11 @@ public class Events {
         this.eventType = eventType;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 
@@ -78,8 +77,6 @@ public class Events {
     }
 
     public void setEventTime(LocalTime eventTime) {
-        //DateFormat formatter = new SimpleDateFormat("HH:mm");
-        //Date newTime = (Date)formatter.parse(eventTime);
         this.eventTime = eventTime;
     }
 
