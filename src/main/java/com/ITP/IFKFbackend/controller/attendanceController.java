@@ -22,12 +22,12 @@ public class attendanceController {
 	private attendanceRepository AttendanceRepository;
 	
 	@GetMapping("/monthlyAttendance")
-	 Collection<Attendance> getAttendance(){
+	 public List<Attendance> getAttendance(){
 		return AttendanceRepository.findAll();
 	}
-	
-	//@GetMapping("/monthlyAttendance/{studentId}")
-	//public Payment getAttendance(@PathVariable String studentId){
-	//	return AttendanceRepository.findBystudentID(studentId);
-	//}
+//	
+//	@GetMapping("/monthlyAttendance/{studentId}")
+//	public List<Attendance> getAttendance(@PathVariable String studentId){
+//		return AttendanceRepository.findByattendanceID(studentId);
+//	}
 }
