@@ -10,6 +10,6 @@ import com.ITP.IFKFbackend.model.Equipment;
 public interface EquipmentRepository extends JpaRepository<Equipment, Long>{
 
 	
-	@Query("from Equipment e WHERE  e.Type LIKE %:searchText% " )
+	@Query("from Equipment e WHERE  e.Type LIKE %:searchText% OR e.Brand LIKE %:searchText% or e.supplier LIKE %:searchText%" )
 	List<Equipment> searchEquip(@Param("searchText") String searchText);
 }

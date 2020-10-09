@@ -59,7 +59,7 @@ public class RequestController {
 		
 		}
 	
-
+//
 //	
 //	@GetMapping("/Myrequests/${userID}")
 //	List<Requests> findByinstructor_user_id(Long userID)
@@ -67,7 +67,7 @@ public class RequestController {
 //		return requestRepository.findByinstructorId(userID);
 //		
 //	}
-	
+//	
 	@DeleteMapping("/requests/{id}")
 	ResponseEntity<?> deleteRequests(@PathVariable Long id){
 	requestRepository.deleteById(id);
@@ -86,17 +86,17 @@ public class RequestController {
 	}
 	
 
-//	@GetMapping("/Myrequests/{id}")
-//	public List<Requests> getRequestsByID(@PathVariable Long id)
-//	{
-//		return requestRepository.getRequestsByID(id);
-//		
-//	}
-//	
-//	
-//	@GetMapping("/searchReq/{searchText}")
-//	public List<Requests> searchDonations(@PathVariable String searchText){
-//		return requestRepository.searchQuery(searchText);
-//	}
+	@GetMapping("/Myrequests/{id}")
+	public List<Requests> getRequestsByID(@PathVariable Long id)
+	{
+		return requestRepository.getRequestsByID(id);
+		
+	}
+	
+	
+	@GetMapping("/searchReq/{searchText}")
+	public List<Requests> searchDonations(@PathVariable String searchText){
+		return requestRepository.searchQuery(searchText);
+	}
 
 }

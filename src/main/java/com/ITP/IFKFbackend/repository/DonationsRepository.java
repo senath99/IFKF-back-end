@@ -15,7 +15,7 @@ import com.ITP.IFKFbackend.model.Rankings;
 public interface DonationsRepository extends JpaRepository<Donations,Long>{
 	
 	
-	@Query("from Donations d WHERE  d.quantity LIKE %:searchText% " )
+	@Query("from Donations d JOIN d.equipment e  WHERE  d.quantity LIKE %:searchText%  OR e.Type LIKE %:searchText% " )
 	List<Donations> searchQuery(@Param("searchText") String searchText);
 	
 	
