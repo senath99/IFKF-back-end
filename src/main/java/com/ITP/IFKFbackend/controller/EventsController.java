@@ -69,10 +69,17 @@ public class EventsController {
     }
 
     //filter by event type
-    @GetMapping("/events/filter/{eventType}")
+    @GetMapping("/events/type/{eventType}")
     public  List<Events> getEventByType(@PathVariable String eventType) {
         return eventsRepository.findByEventType(eventType);
     }
+
+    //filter by event month
+    @GetMapping("/events/month/{eventMonth}")
+    public  List<Events> getEventByMonth(@PathVariable String eventMonth) {
+        return eventsRepository.findByEventMonth(eventMonth);
+    }
+
 
 //    //filter by event progress
 //    @GetMapping("/events/filter/{eventProgress}")
@@ -80,10 +87,5 @@ public class EventsController {
 //        return eventsRepository.findByEventProgress(eventProgress);
 //    }
 
-
-//    @GetMapping("/exams/search/{searchText}")
-//    public List<GradingExaminations> searchExams(@PathVariable String searchText){
-//        return gradingExaminationRepository.searchQuery(searchText);
-//    }
 
 }
