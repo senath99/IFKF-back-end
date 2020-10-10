@@ -1,5 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ITP.IFKFbackend.model.Student;
+
+
 import com.ITP.IFKFbackend.repository.StudentRepository;
+
+import com.ITP.IFKFbackend.service.StudentDetailsReport;
+
+import net.sf.jasperreports.engine.JRException;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -27,6 +34,18 @@ public class StudentController {
 	
 	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
+	private StudentDetailsReport reportservice;
+	
+
+
+	public StudentController(StudentRepository studentRepository) {
+		super();
+		this.studentRepository = studentRepository;
+		
+		
+	}
 	
 	@GetMapping("/students")
 	public List<Student> getAllStudents(){
@@ -58,7 +77,7 @@ public class StudentController {
 	
 	@PutMapping("/students/{studentId}")
 	public ResponseEntity<Student> updateStudent(
-			@PathVariable Long studentId, @RequestBody Student student){
+			@PathVariable String studentId, @RequestBody Student student){
 		
 
 		Student result = studentRepository.save(student);
@@ -71,5 +90,17 @@ public class StudentController {
 		studentRepository.deleteById(studentId);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@GetMapping("/students/search/{searchText}")
+	public List<Student> searchStudent(@PathVariable  String searchText){
+		return studentRepository.searchQuery(searchText);
+	}
+	
+	@GetMapping("/report/{sessionId}")
+	
+	public String getReport(@PathVariable  String sessionId)  throws FileNotFoundException, JRException{
+		return reportservice.getReport(sessionId);
+	}
+	
 	
 }

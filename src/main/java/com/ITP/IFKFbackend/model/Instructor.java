@@ -38,9 +38,6 @@ public class Instructor {
 	@Column(name = "dob")
 	 private Date dob;
 	
-	@Column(name = "session")
-	 private String session;
-	
 	@Column(name = "phoneNo")
 	 private String phoneNo;
 	
@@ -60,8 +57,8 @@ public class Instructor {
 
 
 
-	public Instructor(String instructorId ,String name, String gender, String address, String email, String nic, Date dob,
-			String session, String phoneNo, String qualifications, String experience) {
+	public Instructor(String instructorId ,String name, String gender, 
+			String address, String email, String nic, Date dob, String phoneNo, String qualifications, String experience) {
 		super();
 		
 		this.instructorId =instructorId;
@@ -71,7 +68,6 @@ public class Instructor {
 		this.email = email;
 		this.nic = nic;
 		this.dob = dob;
-		this.session = session;
 		this.phoneNo = phoneNo;
 		this.qualifications = qualifications;
 		this.experience = experience;
@@ -136,14 +132,7 @@ public class Instructor {
 		this.dob = dob;
 	}
 
-	public String getSession() {
-		return session;
-	}
-
-	public void setSession(String session) {
-		this.session = session;
-	}
-
+	
 	public String getPhoneNo() {
 		return phoneNo;
 	}
