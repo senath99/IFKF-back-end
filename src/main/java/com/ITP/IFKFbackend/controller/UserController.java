@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.ITP.IFKFbackend.model.User;
 import com.ITP.IFKFbackend.repository.UserRepository;
+
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -29,11 +29,11 @@ public class UserController {
 	private UserRepository userRepository;
 	
 	
-	
 	@GetMapping("/addusers")
 	public List<User> getAllUsers(){
 		return userRepository.findAll();
 	}
+	
 	
 	@PostMapping("/addusers")
 	public User createUser(@RequestBody User user) {
@@ -43,14 +43,8 @@ public class UserController {
 	
 	
 	@GetMapping("/login/{userId}")
-
-	ResponseEntity<?> getUsers(@PathVariable Long userId){
-	
-		Optional<User> users = userRepository.findById(userId);
-		
-		return users.map(response -> ResponseEntity.ok().body(response))
-				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-		
+	public Optional<User> getUsers(@PathVariable String userId){
+		return userRepository.findById(userId);
 		
 	}
 	
@@ -58,7 +52,7 @@ public class UserController {
 	
 	@PutMapping("/addusers/{userId}")
 	public ResponseEntity<User> updateEquipment(
-			@PathVariable Long userId, @RequestBody User user){
+			@PathVariable String userId, @RequestBody User user){
 		
 
 		User result = userRepository.save(user);
@@ -66,4 +60,10 @@ public class UserController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
+	
+	@GetMapping("/findmax")
+	public User getUserID() {
+		
+		return userRepository.findTopByOrderByUserIdDesc();
+	}
 }

@@ -34,6 +34,13 @@
 		    <version>6.14.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+		<dependency>
+		    <groupId>net.sf.jasperreports</groupId>
+		    <artifactId>jasperreports</artifactId>
+		    <version>6.8.0</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -66,7 +73,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-	
 		
 	</dependencies>
 

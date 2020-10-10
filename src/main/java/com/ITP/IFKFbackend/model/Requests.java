@@ -5,9 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,9 +39,8 @@ public class Requests {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@ManyToOne 
+	private Session sessions;
 	
-//	@ManyToOne 
-//	private Sessions session;
-//
-//	
 }

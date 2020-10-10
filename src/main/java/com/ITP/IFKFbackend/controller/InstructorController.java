@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ITP.IFKFbackend.model.Instructor;
+import com.ITP.IFKFbackend.model.Student;
 import com.ITP.IFKFbackend.repository.InstructorRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -38,16 +39,21 @@ public class InstructorController {
 		return instructorRepository.save(instructor);
 	}
 	
-	
+	@GetMapping("/instructors/id")
+	public Instructor getInstructorId(){
+		return instructorRepository.findTopByOrderByInstructorIdDesc();
+	}
 	
 	@GetMapping("/instructors/{instructorId}")
+	public Optional<Instructor> getInstructor(@PathVariable String instructorId) {
+		return instructorRepository.findById(instructorId);
 
-	ResponseEntity<?> getInstructors(@PathVariable Long instructorId){
-	
-		Optional<Instructor> instructors = instructorRepository.findById(instructorId);
-		
-		return instructors.map(response -> ResponseEntity.ok().body(response))
-				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+//	ResponseEntity<?> getInstructors(@PathVariable String instructorId){
+//	
+//		Optional<Instructor> instructors = instructorRepository.findById(instructorId);
+//		
+//		return instructors.map(response -> ResponseEntity.ok().body(response))
+//				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 		
 		
 	}
@@ -65,7 +71,7 @@ public class InstructorController {
 	}
 	
 	@DeleteMapping("/instructors/{instructorId}")
-	ResponseEntity<?> deleteInstructors(@PathVariable Long instructorId){
+	ResponseEntity<?> deleteInstructors(@PathVariable String instructorId){
 		instructorRepository.deleteById(instructorId);
 		return ResponseEntity.noContent().build();
 	}
