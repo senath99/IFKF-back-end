@@ -5,9 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,8 +40,9 @@ public class Requests {
 		return null;
 	}
 	
-//	@ManyToOne 
-//	private Sessions session;
-//
-//	
+
+	@ManyToOne 
+	private Session sessions;
+
+	
 }

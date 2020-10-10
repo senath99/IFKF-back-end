@@ -6,8 +6,6 @@ import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-import javax.persistence.Entity;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,13 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ITP.IFKFbackend.model.Donations;
 import com.ITP.IFKFbackend.repository.DonationsRepository;
-import com.ITP.IFKFbackend.repository.EquipmentRepository;
 import com.ITP.IFKFbackend.service.DonationsReport;
-
-
 import net.sf.jasperreports.engine.JRException;
-
-
 
 
 	@RestController
@@ -42,27 +35,24 @@ import net.sf.jasperreports.engine.JRException;
 		private DonationsReport reportservice;
 		
 	
-
-		public DonationsController(DonationsRepository donationsRepository,EquipmentRepository equipmentRepository) {
+		
+		public DonationsController(DonationsRepository donationsRepository, DonationsReport reportservice) {
 			super();
 			this.donationsRepository = donationsRepository;
-			
-			
+			this.reportservice = reportservice;
 		}
-		
-		
-		
+
+
+
 		@GetMapping("/donations")
 		Collection<Donations> donations()
 		{
 			return donationsRepository.findAll();
 			
-			 
-			
 		}
 		
 		
-		
+	
 		@GetMapping("/donations/{id}")
 		ResponseEntity<?> getDonations(@PathVariable Long id){
 		
@@ -108,17 +98,24 @@ import net.sf.jasperreports.engine.JRException;
 		}
 
 		
-//		@GetMapping("/Totalquantity")
-//		public List<Donations>FindTotal(){
+//		@GetMapping("/LastID")
+//		public Donations getLastID(){
 //			
-//			
-//			return donationsRepository.FindTotal();
+//			return donationsRepository.findTopByOrderByquantityDesc();		
+//		
 //		}
 		
 		@GetMapping("/reports")
 		public String getDonationsReport() throws FileNotFoundException, JRException {
 			return reportservice.getReport();
 		}
+		
+//	
+//		@GetMapping("/Join")
+//		public List<Donate_Session> getJoinInfo(){
+//			return donationsRepository.getjoinInformations();
+//		}
+//	
 	}
 
 	

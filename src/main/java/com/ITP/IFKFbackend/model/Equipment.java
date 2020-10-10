@@ -35,9 +35,9 @@ public class Equipment {
 	@GeneratedValue
 	private Long id;
 	
-	private String Type;
+	private String type;
 	
-	private String Brand;
+	private String brand;
 	
 	private String supplier;
 	
