@@ -38,6 +38,12 @@ public class Donations {
 	
 	@ManyToOne 
 	private Equipment equipment;
+
+
+	public String getDonateID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	@ManyToOne 

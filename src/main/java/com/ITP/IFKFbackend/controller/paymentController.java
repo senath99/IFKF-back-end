@@ -1,7 +1,9 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.ITP.IFKFbackend.model.GradingExaminations;
 import com.ITP.IFKFbackend.model.Payment;
 import com.ITP.IFKFbackend.repository.paymentRepository;
+import com.ITP.IFKFbackend.service.PaymentReport;
+
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -26,16 +32,23 @@ public class paymentController {
 	@Autowired
 	private paymentRepository PaymentRepository;
 	
+	@Autowired
+	private PaymentReport service;
+	
 	@GetMapping("/payments")
 	public List<Payment> getAllPayments(){
 		return PaymentRepository.findAll();
 	}
 	
 	@GetMapping("/payments/{studentId}")
-	public Payment getPayments(@PathVariable String studentId){
+	public List<Payment> getPayments(@PathVariable String studentId){
 		return PaymentRepository.findBystudentID(studentId);
 	}
-	
+
+	@GetMapping("/payment/{Id}")
+	public Optional<Payment> getPayment(@PathVariable long Id){
+		return PaymentRepository.findById(Id);
+	}
 	
 	
 	@PostMapping("/payments/insert")
@@ -57,14 +70,23 @@ public class paymentController {
 		
 	}
 	
-	@PutMapping("/payments/{paymentID}")
-	public ResponseEntity<Payment> updatePayments(
-			@PathVariable Long paymentID, @RequestBody Payment payment){
+	@PutMapping("/payments")
+	public ResponseEntity<Payment> updatePayments( @RequestBody Payment payment){
 		
 			Payment result = PaymentRepository.save(payment);
-		
 			return new ResponseEntity<Payment>(payment, HttpStatus.OK);
 	}
 	
+	
+	@GetMapping("/payments/search/{searchText}")
+	public List<Payment> searchPayment(@PathVariable String searchText){
+		return PaymentRepository.searchQuery(searchText);
+	}
+	
+	
+	@GetMapping("/reports/{studentID}")
+	public String exportReport(@PathVariable String studentID) throws FileNotFoundException, JRException {
+		return service.exportReport(studentID);
+	}
 
 }

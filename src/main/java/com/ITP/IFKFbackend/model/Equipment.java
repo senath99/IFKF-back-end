@@ -42,6 +42,11 @@ public class Equipment {
 	private String supplier;
 	
 	private int quantity;
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 	
