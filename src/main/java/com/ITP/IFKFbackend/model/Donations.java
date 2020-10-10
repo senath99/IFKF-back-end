@@ -40,6 +40,11 @@ public class Donations {
 	private Equipment equipment;
 
 
+	public String getDonateID1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public String getDonateID() {
 		// TODO Auto-generated method stub
 		return null;

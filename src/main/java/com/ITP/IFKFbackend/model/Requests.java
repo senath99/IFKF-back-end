@@ -39,10 +39,8 @@ public class Requests {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 	@ManyToOne 
 	private Session sessions;
-
 	
 }
