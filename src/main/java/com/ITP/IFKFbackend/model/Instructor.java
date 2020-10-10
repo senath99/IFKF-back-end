@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Instructor {
 	@Id
 	@Column(name = "instructorId")
-	 private Long  instructorId;
+	 private String  instructorId;
 	
 	@Column(name = "name")
 	 private String name;
@@ -60,7 +60,7 @@ public class Instructor {
 
 
 
-	public Instructor(Long instructorId ,String name, String gender, String address, String email, String nic, Date dob,
+	public Instructor(String instructorId ,String name, String gender, String address, String email, String nic, Date dob,
 			String session, String phoneNo, String qualifications, String experience) {
 		super();
 		
@@ -80,11 +80,11 @@ public class Instructor {
 
 
 
-	public Long getInstructorId() {
+	public String getInstructorId() {
 		return instructorId;
 	}
 
-	public void setInstructorId(Long instructorId) {
+	public void setInstructorId(String instructorId) {
 		this.instructorId = instructorId;
 	}
 
