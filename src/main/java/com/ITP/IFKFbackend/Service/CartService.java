@@ -14,7 +14,9 @@ public interface CartService {
     //get cart details from cart table
     List<Cart> getAll();
     void deleteProduct(String id);
+    Cart avoidrepeat(String id);
 
+    void clearCart(String id);
 
 
 

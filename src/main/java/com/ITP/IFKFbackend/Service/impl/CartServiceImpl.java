@@ -35,6 +35,17 @@ public class CartServiceImpl implements CartService {
         cartRepository.deleteProduct(id);
     }
 
+    @Override
+    public Cart avoidrepeat(String id) {
+        cartRepository.avoidrepeatItems(id);
+        return null;
+    }
+
+    @Override
+    public void clearCart(String id) {
+        cartRepository.clearCart(id);
+    }
+
 //    @Override
 //    public void deleteProduct(long  id) {
 //        String t= String.valueOf(id);
