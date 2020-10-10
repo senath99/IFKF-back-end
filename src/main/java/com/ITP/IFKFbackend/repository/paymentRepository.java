@@ -17,5 +17,6 @@ public interface paymentRepository extends JpaRepository<Payment, Long>{
 	@Query("From Payment p WHERE p.studentID= :searchText ORDER BY p.studentID DESC")
 	List<Payment> searchQuery(@Param("searchText") String studentID);
 
+	
 
 }

@@ -1,5 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +21,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.ITP.IFKFbackend.model.GradingExaminations;
 import com.ITP.IFKFbackend.model.Payment;
 import com.ITP.IFKFbackend.repository.paymentRepository;
+import com.ITP.IFKFbackend.service.PaymentReport;
+
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -27,6 +31,9 @@ public class paymentController {
 	
 	@Autowired
 	private paymentRepository PaymentRepository;
+	
+	@Autowired
+	private PaymentReport service;
 	
 	@GetMapping("/payments")
 	public List<Payment> getAllPayments(){
@@ -76,5 +83,10 @@ public class paymentController {
 		return PaymentRepository.searchQuery(searchText);
 	}
 	
+	
+	@GetMapping("/reports/{studentID}")
+	public String exportReport(@PathVariable String studentID) throws FileNotFoundException, JRException {
+		return service.exportReport(studentID);
+	}
 
 }
