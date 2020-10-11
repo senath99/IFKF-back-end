@@ -1,6 +1,6 @@
 package com.ITP.IFKFbackend.service.impl;
 
-import com.ITP.IFKFbackend.Service.CartService;
+import com.ITP.IFKFbackend.service.CartService;
 import com.ITP.IFKFbackend.model.Cart;
 import com.ITP.IFKFbackend.model.Product;
 import com.ITP.IFKFbackend.repository.CartRepository;

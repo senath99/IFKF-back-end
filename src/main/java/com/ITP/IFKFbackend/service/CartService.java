@@ -1,4 +1,4 @@
-package com.ITP.IFKFbackend.Service;
+package com.ITP.IFKFbackend.service;
 
 import com.ITP.IFKFbackend.model.Cart;
 import com.ITP.IFKFbackend.model.Product;
