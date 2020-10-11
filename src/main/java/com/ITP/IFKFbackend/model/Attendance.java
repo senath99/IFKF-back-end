@@ -36,6 +36,11 @@ public class Attendance {
 		return attendanceID;
 	}
 
+	public Long getAttendanceID() {
+		return attendanceID;
+	}
+
+
 	public void setAttendanceID(Long attendanceID) {
 		this.attendanceID = attendanceID;
 	}

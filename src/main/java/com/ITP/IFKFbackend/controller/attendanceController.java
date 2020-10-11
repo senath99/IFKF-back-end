@@ -1,5 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,6 +20,9 @@ import com.ITP.IFKFbackend.model.Attendance;
 import com.ITP.IFKFbackend.model.Payment;
 import com.ITP.IFKFbackend.model.Student;
 import com.ITP.IFKFbackend.repository.attendanceRepository;
+import com.ITP.IFKFbackend.service.AttendanceReport;
+
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -26,6 +30,9 @@ public class attendanceController {
 
 	@Autowired
 	private attendanceRepository AttendanceRepository;
+	
+	@Autowired
+	private AttendanceReport service;
 	
 	@GetMapping("/monthlyAttendance")
 	 public List<Attendance> getAttendance(){
@@ -58,5 +65,13 @@ public class attendanceController {
 	 public Attendance getAttendanceByStu(@PathVariable String Id){
 		return AttendanceRepository.findByStuId(Id);
 	}
+
+	@GetMapping("/attendance/report")
+	public String getReport() throws FileNotFoundException, JRException {
+		return service.exportReport();
+	}
 	
 }
+
+}
+
