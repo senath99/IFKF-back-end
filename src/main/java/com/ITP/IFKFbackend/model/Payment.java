@@ -17,28 +17,21 @@ public class Payment {
 	@GeneratedValue
 	private Long paymentID;
 	private String studentID;
-	private String studentName;
 	private double amount;
-	private String session;
-	private String sessionTime;
-	private String paymentStatus;
-	private String sessionId;
+	private Date date;
+	private String month;
 	
 	public Payment() {
 		super();
 	}
 
-	public Payment(Long paymentID, String studentID, String studentName, double amount, String session,
-			String sessionTime, String paymentStatus, String sessionId) {
+	public Payment(Long paymentID, String studentID, double amount, Date date, String month) {
 		super();
 		this.paymentID = paymentID;
 		this.studentID = studentID;
-		this.studentName = studentName;
 		this.amount = amount;
-		this.session = session;
-		this.sessionTime = sessionTime;
-		this.paymentStatus = paymentStatus;
-		this.sessionId = sessionId;
+		this.date = date;
+		this.month = month;
 	}
 
 	public Long getPaymentID() {
@@ -57,14 +50,6 @@ public class Payment {
 		this.studentID = studentID;
 	}
 
-	public String getStudentName() {
-		return studentName;
-	}
-
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
-	}
-
 	public double getAmount() {
 		return amount;
 	}
@@ -73,36 +58,20 @@ public class Payment {
 		this.amount = amount;
 	}
 
-	public String getSession() {
-		return session;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setSession(String session) {
-		this.session = session;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public String getSessionTime() {
-		return sessionTime;
+	public String getMonth() {
+		return month;
 	}
 
-	public void setSessionTime(String sessionTime) {
-		this.sessionTime = sessionTime;
-	}
-
-	public String getPaymentStatus() {
-		return paymentStatus;
-	}
-
-	public void setPaymentStatus(String paymentStatus) {
-		this.paymentStatus = paymentStatus;
-	}
-
-	public String getSessionId() {
-		return sessionId;
-	}
-
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
+	public void setMonth(String month) {
+		this.month = month;
 	}
 
 	@Override
@@ -132,13 +101,11 @@ public class Payment {
 
 	@Override
 	public String toString() {
-		return "Payment [paymentID=" + paymentID + ", studentID=" + studentID + ", studentName=" + studentName
-				+ ", amount=" + amount + ", session=" + session + ", sessionTime=" + sessionTime + ", paymentStatus="
-				+ paymentStatus + ", sessionId=" + sessionId + "]";
+		return "Payment [paymentID=" + paymentID + ", studentID=" + studentID + ", amount=" + amount + ", date=" + date
+				+ ", month=" + month + "]";
 	}
+
 	
-	
-	
-	
+
 	
 }

@@ -77,4 +77,10 @@ public class StudentController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	//find exams by search query
+	@GetMapping("/students/search/{searchText}")
+	public List<Student> searchExams(@PathVariable String searchText){
+		return studentRepository.searchQuery(searchText);
+	}
+	
 }

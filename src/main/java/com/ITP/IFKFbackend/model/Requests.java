@@ -34,10 +34,13 @@ public class Requests {
 	
 	@ManyToOne 
 	private Instructor instructor;
-	
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@ManyToOne 
 	private Session sessions;
-
 	
 }
