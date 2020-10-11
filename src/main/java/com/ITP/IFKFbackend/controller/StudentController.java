@@ -85,5 +85,4 @@ public class StudentController {
 		return studentRepository.searchQuery(searchText);
 	}
 	
-	
 }
