@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.ITP.IFKFbackend.Dto.DonationSort;
 import com.ITP.IFKFbackend.model.Donations;
 import com.ITP.IFKFbackend.repository.DonationsRepository;
 import com.ITP.IFKFbackend.service.DonationsReport;
@@ -98,6 +99,14 @@ import net.sf.jasperreports.engine.JRException;
 		}
 
 		
+
+		@GetMapping("/searchquan/{searchText}")
+		public List<DonationSort> searchquan(@PathVariable String searchText){
+			
+			return donationsRepository.searchQuantity(searchText);
+		}
+
+		
 //		@GetMapping("/LastID")
 //		public Donations getLastID(){
 //			
@@ -110,12 +119,18 @@ import net.sf.jasperreports.engine.JRException;
 			return reportservice.getReport();
 		}
 		
-//	
-//		@GetMapping("/Join")
-//		public List<Donate_Session> getJoinInfo(){
-//			return donationsRepository.getjoinInformations();
-//		}
-//	
+		
+		@GetMapping("/reportsFull")
+		public String getDonationsFullReport() throws FileNotFoundException, JRException {
+			return reportservice.getFullDonationReport();
+		}
+		
+	
+		@GetMapping("/Join")
+		public Collection<DonationSort> getJoinInfo(){
+			return donationsRepository.findQuantitybySessionId();
+		}
+	
 	}
 
 	

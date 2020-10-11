@@ -7,6 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Attendance {
 
+
 	@Id
 	@GeneratedValue
 	private Long attendanceID;
@@ -30,6 +31,10 @@ public class Attendance {
 		this.stuId = stuId;
 	}
 
+	public Long getAttendanceID() {
+		
+		return attendanceID;
+	}
 
 	public Long getAttendanceID() {
 		return attendanceID;

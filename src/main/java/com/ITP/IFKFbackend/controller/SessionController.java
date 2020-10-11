@@ -1,9 +1,11 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +20,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ITP.IFKFbackend.model.Session;
 import com.ITP.IFKFbackend.repository.SessionRepository;
+import com.ITP.IFKFbackend.service.PerfomanceReportService;
+import com.ITP.IFKFbackend.service.SessionReportService;
+
+import net.sf.jasperreports.engine.JRException;
 
 
 @RestController
@@ -26,6 +32,10 @@ public class SessionController {
 	
 	@Autowired
 	private SessionRepository sessionRepository;
+	
+	@Autowired
+	private SessionReportService reportService;
+	
 
 	//get all sessions
 	@GetMapping("/sessions")
@@ -65,5 +75,19 @@ public class SessionController {
 		
 	}
 	
+	//search by Query
+		@GetMapping("/sessions/search/{searchText}")
+		public List<Session> searchSession(@PathVariable String searchText){
+			return sessionRepository.searchQuery(searchText);
+		}
+		
+	//report
+		@GetMapping("/report/{searchText}")
+		public String getSessionReport(@PathVariable String searchText) throws FileNotFoundException, JRException {
+		return reportService.getSessionReport(searchText);
+		}
+		
+		
+
 	
 }

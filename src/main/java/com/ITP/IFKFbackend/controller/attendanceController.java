@@ -65,10 +65,13 @@ public class attendanceController {
 	 public Attendance getAttendanceByStu(@PathVariable String Id){
 		return AttendanceRepository.findByStuId(Id);
 	}
-	
+
 	@GetMapping("/attendance/report")
 	public String getReport() throws FileNotFoundException, JRException {
 		return service.exportReport();
 	}
 	
 }
+
+}
+

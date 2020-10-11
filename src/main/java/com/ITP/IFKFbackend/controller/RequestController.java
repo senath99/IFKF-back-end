@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ITP.IFKFbackend.model.Donations;
+
 import com.ITP.IFKFbackend.model.Requests;
 import com.ITP.IFKFbackend.repository.RequestRepository;
 
@@ -87,7 +87,7 @@ public class RequestController {
 	
 
 	@GetMapping("/Myrequests/{id}")
-	public List<Requests> getRequestsByID(@PathVariable Long id)
+	public List<Requests> getRequestsByID(@PathVariable String id)
 	{
 		return requestRepository.getRequestsByID(id);
 		

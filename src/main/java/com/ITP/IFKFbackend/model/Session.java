@@ -18,15 +18,20 @@ public class Session {
 	private LocalTime stime;
 	private LocalTime etime;
 	private String venue;
-	private String branch;
-	private Long instructorId;
+
+
+	private String instructorId;
 	private String instructorName;
 	
 	public Session() {
 		super();
 	}
 
-	public Session(Long sessionId, Date day, LocalTime stime, LocalTime etime, String venue, String branch, Long instructorId,
+
+	
+
+	public Session(Long sessionId, Date day, LocalTime stime, LocalTime etime, String venue, String instructorId,
+
 			String instructorName) {
 		super();
 		this.sessionId = sessionId;
@@ -34,7 +39,6 @@ public class Session {
 		this.stime = stime;
 		this.etime = etime;
 		this.venue = venue;
-		this.branch = branch;
 		this.instructorId = instructorId;
 		this.instructorName = instructorName;
 	}
@@ -79,19 +83,13 @@ public class Session {
 		this.venue = venue;
 	}
 
-	public String getBranch() {
-		return branch;
-	}
 
-	public void setBranch(String branch) {
-		this.branch = branch;
-	}
 
-	public Long getInstructorId() {
+	public String getInstructorId() {
 		return instructorId;
 	}
 
-	public void setInstructorId(Long instructorId) {
+	public void setInstructorId(String instructorId) {
 		this.instructorId = instructorId;
 	}
 
@@ -131,9 +129,9 @@ public class Session {
 	@Override
 	public String toString() {
 		return "Session [sessionId=" + sessionId + ", day=" + day + ", stime=" + stime + ", etime=" + etime + ", venue="
-				+ venue + ", branch=" + branch + ", instructorId=" + instructorId + ", instructorName=" + instructorName
-				+ "]";
+				+ venue + ", instructorId=" + instructorId + ", instructorName=" + instructorName + "]";
 	}
+	
 	
 	
 	
