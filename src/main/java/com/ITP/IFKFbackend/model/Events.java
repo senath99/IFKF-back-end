@@ -1,11 +1,11 @@
 package com.ITP.IFKFbackend.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Entity
 public class Events {
@@ -15,20 +15,20 @@ public class Events {
     private Long eventId;
     private String eventName;
     private String eventType;
-    private Date eventDate;
+    private String eventDate;
     private LocalTime eventTime;
     private String organizer;
     private String eventDesc;
-    private boolean isFinished;
     private String bgImgName;
+    private String eventLocation;
+    @Column(nullable = false, columnDefinition = "TINYINT(1)")
+    private boolean isFinished;
 
     public Events() {
         super();
     }
 
-    public Events(Long eventId, String eventName, String eventType, Date eventDate, LocalTime eventTime, String organizer,
-                  String eventDesc, boolean isFinished, String bgImgName) {
-        super();
+    public Events(Long eventId, String eventName, String eventType, String eventDate, LocalTime eventTime, String organizer, String eventDesc, String bgImgName, String eventLocation, boolean isFinished) {
         this.eventId = eventId;
         this.eventName = eventName;
         this.eventType = eventType;
@@ -36,8 +36,9 @@ public class Events {
         this.eventTime = eventTime;
         this.organizer = organizer;
         this.eventDesc = eventDesc;
-        this.isFinished = isFinished;
         this.bgImgName = bgImgName;
+        this.eventLocation = eventLocation;
+        this.isFinished = isFinished;
     }
 
     public Long getEventId() {
@@ -64,22 +65,19 @@ public class Events {
         this.eventType = eventType;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 
     public LocalTime getEventTime() {
         return eventTime;
-
     }
 
     public void setEventTime(LocalTime eventTime) {
-        //DateFormat formatter = new SimpleDateFormat("HH:mm");
-        //Date newTime = (Date)formatter.parse(eventTime);
         this.eventTime = eventTime;
     }
 
@@ -99,20 +97,28 @@ public class Events {
         this.eventDesc = eventDesc;
     }
 
-    public boolean isFinished() {
-        return isFinished;
-    }
-
-    public void setFinished(boolean finished) {
-        isFinished = finished;
-    }
-
     public String getBgImgName() {
         return bgImgName;
     }
 
     public void setBgImgName(String bgImgName) {
         this.bgImgName = bgImgName;
+    }
+
+    public String getEventLocation() {
+        return eventLocation;
+    }
+
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
     }
 
     @Override
@@ -137,18 +143,4 @@ public class Events {
         return result;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Events{" +
-//                "eventId=" + eventId +
-//                ", eventName='" + eventName + '\'' +
-//                ", eventType='" + eventType + '\'' +
-//                ", eventDate=" + eventDate +
-//                ", eventTime=" + eventTime +
-//                ", organizer='" + organizer + '\'' +
-//                ", eventDesc='" + eventDesc + '\'' +
-//                ", isFinished=" + isFinished +
-//                ", bgImgName='" + bgImgName + '\'' +
-//                '}';
-//    }
 }

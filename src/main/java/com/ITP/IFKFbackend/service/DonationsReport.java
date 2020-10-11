@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
 import com.ITP.IFKFbackend.model.Donations;
+import com.ITP.IFKFbackend.model.Equipment;
 import com.ITP.IFKFbackend.repository.DonationsRepository;
+import com.ITP.IFKFbackend.repository.EquipmentRepository;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -25,11 +27,15 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 public class DonationsReport {
 	
 	@Autowired
-	private DonationsRepository repository;
+	private DonationsRepository donationsrepository;
+	
+	@Autowired
+	private EquipmentRepository equipmentrepository;
+	
 	
 	public String getReport() throws FileNotFoundException, JRException {
 		
-		   List<Donations> donations = repository.findAll();
+		   List<Donations> donations = donationsrepository.findAll();
 		//Load a file
 		
 			String path = "C:\\Users\\Senath\\Desktop\\Reports";
@@ -47,5 +53,30 @@ public class DonationsReport {
 			
 		
 	}
+	
+	
+
+	public String getEquipmentReport() throws FileNotFoundException, JRException {
+		
+		   List<Equipment> donations = equipmentrepository.findAll();
+		//Load a file
+		
+			String path = "C:\\Users\\Senath\\Desktop\\Reports";
+		
+	
+			 File file = ResourceUtils.getFile("classpath:Equipment.jrxml");
+			 JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+			 JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(donations);
+			 Map<String, Object> parameters = new HashMap<>();
+		     parameters.put("createdBy", "IFKF - Sri Lanka");
+			 JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+			 JasperExportManager.exportReportToPdfFile(jasperPrint, path+"\\ Equipment Report.pdf");
+			
+			 return "Equipment Report Downloaded Successfully in path "+path;
+			
+		
+	}
+	
+	
 
 }
