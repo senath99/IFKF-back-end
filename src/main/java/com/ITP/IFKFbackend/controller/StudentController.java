@@ -52,10 +52,10 @@ public class StudentController {
 		
 	}
 	
-	@GetMapping("/studentSession{sessionID}")
+	@GetMapping("/studentSession/{sessionID}")
 	public List<Student> getStudentbysession(@PathVariable String sessionID){
 	
-			return studentRepository.findBysession(sessionID);
+			return studentRepository.findBySession(sessionID);
 		
 	}
 	

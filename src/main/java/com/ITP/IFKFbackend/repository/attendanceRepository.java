@@ -8,5 +8,8 @@ import com.ITP.IFKFbackend.model.Attendance;
 
 
 public interface attendanceRepository extends JpaRepository<Attendance, Long>{
+	
+	
+	Attendance findByStuId(String stuID);
 
 }
