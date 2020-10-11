@@ -34,11 +34,16 @@ public class Donations {
 	@GeneratedValue
 	private Long donateID;
 	private Date donateDate;
-	private String quantity;
+	private Long quantity;
 	
 	@ManyToOne 
 	private Equipment equipment;
 
+
+	public String getDonateID1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public String getDonateID() {
 		// TODO Auto-generated method stub

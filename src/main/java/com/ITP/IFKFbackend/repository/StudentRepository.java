@@ -13,11 +13,13 @@ import com.ITP.IFKFbackend.model.Student;
 @Repository 
 public interface StudentRepository extends JpaRepository<Student,String>{
 
+	 
 	List<Student> findBysession(String sesssionID);
 
+
 	 public Student findTopByOrderByStudentIdDesc();
-	 
-	@Query("from Student s WHERE s.studentId LIKE %:searchText% OR s.name LIKE %:searchText%")
-	List<Student> searchQuery(@Param("searchText") String searchText);
-	 
+
+	 @Query("from Student s WHERE s.studentId LIKE %:searchText% OR s.name LIKE %:searchText%")
+	 List<Student> searchQuery(@Param("searchText") String searchText);
+  
 }
