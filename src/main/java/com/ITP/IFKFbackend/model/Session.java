@@ -19,14 +19,14 @@ public class Session {
 	private LocalTime etime;
 	private String venue;
 	private String branch;
-	private Long instructorId;
+	private String instructorId;
 	private String instructorName;
 	
 	public Session() {
 		super();
 	}
 
-	public Session(Long sessionId, Date day, LocalTime stime, LocalTime etime, String venue, String branch, Long instructorId,
+	public Session(Long sessionId, Date day, LocalTime stime, LocalTime etime, String venue, String branch, String instructorId,
 			String instructorName) {
 		super();
 		this.sessionId = sessionId;
@@ -87,11 +87,11 @@ public class Session {
 		this.branch = branch;
 	}
 
-	public Long getInstructorId() {
+	public String getInstructorId() {
 		return instructorId;
 	}
 
-	public void setInstructorId(Long instructorId) {
+	public void setInstructorId(String instructorId) {
 		this.instructorId = instructorId;
 	}
 

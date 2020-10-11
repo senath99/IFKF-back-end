@@ -11,8 +11,8 @@ import com.ITP.IFKFbackend.model.Student;
 @Repository 
 public interface StudentRepository extends JpaRepository<Student,String>{
 
+	 
 	List<Student> findBysession(String sesssionID);
 
-	 public Student findTopByOrderByStudentIdDesc();
-
+	Student findTopByOrderByStudentIdDesc();
 }
