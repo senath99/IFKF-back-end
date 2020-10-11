@@ -1,7 +1,5 @@
 package com.ITP.IFKFbackend.Dto;
 
-
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +16,5 @@ public class DonationSort {
 	private Long quantity;
 	private Long id;
 	private String type;
+	
 }

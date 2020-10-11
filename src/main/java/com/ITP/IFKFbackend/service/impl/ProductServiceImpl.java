@@ -1,5 +1,5 @@
 package com.ITP.IFKFbackend.service.impl;
-import com.ITP.IFKFbackend.Service.ProductService;
+import com.ITP.IFKFbackend.service.ProductService;
 import com.ITP.IFKFbackend.model.Product;
 import com.ITP.IFKFbackend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

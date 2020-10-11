@@ -1,6 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
-import com.ITP.IFKFbackend.Service.OrderService;
+import com.ITP.IFKFbackend.service.OrderService;
 import com.ITP.IFKFbackend.model.Order_List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

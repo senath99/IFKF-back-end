@@ -1,5 +1,5 @@
 package com.ITP.IFKFbackend.controller;
-import com.ITP.IFKFbackend.Service.ProductService;
+import com.ITP.IFKFbackend.service.ProductService;
 import com.ITP.IFKFbackend.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
