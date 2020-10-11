@@ -119,6 +119,12 @@ import net.sf.jasperreports.engine.JRException;
 			return reportservice.getReport();
 		}
 		
+		
+		@GetMapping("/reportsFull")
+		public String getDonationsFullReport() throws FileNotFoundException, JRException {
+			return reportservice.getFullDonationReport();
+		}
+		
 	
 		@GetMapping("/Join")
 		public Collection<DonationSort> getJoinInfo(){

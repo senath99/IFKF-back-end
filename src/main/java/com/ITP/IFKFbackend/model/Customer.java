@@ -9,6 +9,7 @@ import java.util.Set;
 
 @Entity
 public class Customer {
+	
     @Id
     private String custId;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
