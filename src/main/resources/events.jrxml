@@ -103,7 +103,7 @@
     </columnHeader>
     <detail>
         <band height="32">
-            <textField textAdjust="StretchHeight">
+            <textField isStretchWithOverflow="true">
                 <reportElement x="0" y="0" width="50" height="32" uuid="01076b0f-6bc5-4284-9ee5-5ac61f32607e">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01c80d0f-1e3a-4479-9151-d183f2766042"/>
                 </reportElement>
@@ -112,7 +112,7 @@
                 </textElement>
                 <textFieldExpression><![CDATA[$F{eventId}]]></textFieldExpression>
             </textField>
-            <textField textAdjust="StretchHeight">
+            <textField isStretchWithOverflow="true">
                 <reportElement x="50" y="0" width="160" height="32" uuid="0a0a5574-8490-4283-85c7-cae095dae105">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="96ed0a32-bd68-4694-8267-4c634a23aafd"/>
                 </reportElement>
@@ -121,7 +121,7 @@
                 </textElement>
                 <textFieldExpression><![CDATA[$F{eventName}]]></textFieldExpression>
             </textField>
-            <textField textAdjust="StretchHeight">
+            <textField isStretchWithOverflow="true">
                 <reportElement x="210" y="0" width="100" height="32" uuid="da6fc6b1-7331-491d-9db4-6ce3771d5b84">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68ca4690-d217-4862-a614-872683881b98"/>
                 </reportElement>
@@ -130,7 +130,7 @@
                 </textElement>
                 <textFieldExpression><![CDATA[$F{eventType}]]></textFieldExpression>
             </textField>
-            <textField textAdjust="StretchHeight">
+            <textField isStretchWithOverflow="true">
                 <reportElement x="310" y="0" width="70" height="32" uuid="4030bcc8-ed10-4910-8bec-44bc0a078445">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fdeba8e0-1912-49a9-9614-835b112cc97f"/>
                 </reportElement>
@@ -139,7 +139,7 @@
                 </textElement>
                 <textFieldExpression><![CDATA[$F{eventDate}]]></textFieldExpression>
             </textField>
-            <textField textAdjust="StretchHeight">
+            <textField isStretchWithOverflow="true">
                 <reportElement x="380" y="0" width="175" height="32" uuid="a07f97f3-bc3a-4c0b-9149-b32cc85c98cf">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba29ff0a-99fe-4adf-9661-687ca166f842"/>
                 </reportElement>
