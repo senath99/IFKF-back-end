@@ -34,7 +34,7 @@ public class Donations {
 	@GeneratedValue
 	private Long donateID;
 	private Date donateDate;
-	private String quantity;
+	private Long quantity;
 	
 	@ManyToOne 
 	private Equipment equipment;

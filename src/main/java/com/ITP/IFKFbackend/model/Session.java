@@ -18,6 +18,8 @@ public class Session {
 	private LocalTime stime;
 	private LocalTime etime;
 	private String venue;
+
+
 	private String instructorId;
 	private String instructorName;
 	
@@ -25,7 +27,11 @@ public class Session {
 		super();
 	}
 
+
+	
+
 	public Session(Long sessionId, Date day, LocalTime stime, LocalTime etime, String venue, String instructorId,
+
 			String instructorName) {
 		super();
 		this.sessionId = sessionId;
@@ -76,6 +82,8 @@ public class Session {
 	public void setVenue(String venue) {
 		this.venue = venue;
 	}
+
+
 
 	public String getInstructorId() {
 		return instructorId;

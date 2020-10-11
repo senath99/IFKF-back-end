@@ -41,20 +41,18 @@ public class StudentController {
 	
 	
 	@GetMapping("/students/{studentId}")
-	public Optional<Student> getStudent(@PathVariable String studentId) {
-		return studentRepository.findById(studentId);
-//	ResponseEntity<?> getStudents(@PathVariable String studentId){
-//		Optional<Student> students = studentRepository.findById(studentId);
-//		return students.map(response -> ResponseEntity.ok().body(response))
-//				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+
+	ResponseEntity<?> getStudents(@PathVariable String studentId){
+	
+		Optional<Student> students = studentRepository.findById(studentId);
+		
+		return students.map(response -> ResponseEntity.ok().body(response))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+		
+		
 	}
 	
-	@GetMapping("/students/id")
-	public Student getStudentId(){
-		return studentRepository.findTopByOrderByStudentIdDesc();
-	}
-	
-	@GetMapping("/studentSession/{sessionID}")
+	@GetMapping("/studentSession{sessionID}")
 	public List<Student> getStudentbysession(@PathVariable String sessionID){
 	
 			return studentRepository.findBysession(sessionID);

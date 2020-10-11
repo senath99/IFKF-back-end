@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ITP.IFKFbackend.model.Equipment;
+import com.ITP.IFKFbackend.model.Instructor;
 import com.ITP.IFKFbackend.repository.EquipmentRepository;
 import com.ITP.IFKFbackend.service.DonationsReport;
 
@@ -103,6 +104,12 @@ public class EquipmentController {
 	@GetMapping("/equipReport")
 	public String getDonationsReport() throws FileNotFoundException, JRException {
 		return reportservice.getEquipmentReport();
+	}
+	
+	
+	@GetMapping("/equipMax")
+	public Equipment getMaxEquipID(){
+		return equipmentRepository.findTopByOrderByIdDesc();
 	}
 
 }
