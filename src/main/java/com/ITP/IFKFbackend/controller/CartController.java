@@ -20,9 +20,9 @@ public class CartController {
 
 
     @PostMapping("/CartItems/{id}/{customerId}")
-    public Cart addedToCart(@PathVariable String id, @PathVariable ("customerId")String CID){
+    public Cart addedToCart(@PathVariable String id, @PathVariable("customerId") String CID) {
 
-        Cart cart=new Cart();
+        Cart cart = new Cart();
         Product p = new Product();
         p.setId(id);
         Customer c = new Customer();
@@ -30,7 +30,7 @@ public class CartController {
         cart.setCustomer(c);
         cart.setProduct(p);
 
-        Cart avoidrepeat=cartService.avoidrepeat(id);
+//        Cart avoidrepeat = cartService.avoidrepeat(id);
 
 
         return cartService.addedToCart(cart);
@@ -47,15 +47,28 @@ public class CartController {
 //    }
 
 
+//    @GetMapping("/GetCartItems")
+//    public List<Product> getAll() {
+//        return cartService.getAlProducts("C001");
+//    }
 
-    //list all the data from cart id eka senathage ekn gann one
-    @GetMapping("/GetCartItems")
-    public List<Product> getAll(){
-        return  cartService.getAlProducts("C001");
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    @GetMapping("/GetCartItems/{id1}")
+    public List<Product> getAllbyuser(@PathVariable String id1) {
+        return cartService.getAlProducts(id1);
+    }
+    @PostMapping("/saveCustomer/{id1}")
+    public Customer addtoTabele(@PathVariable String id1){
+        Customer cust= new Customer();
+        cust.setCustId(id1);
+
+        return cartService.addtoTable(cust);
     }
 
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
     @DeleteMapping("/deleteItem/{id}")
-    void deleteProduct(@PathVariable String  id){
+    void deleteProduct(@PathVariable String id) {
 
 //        System.out.println("AAAAAAAAA"+id);
         cartService.deleteProduct(id);
@@ -64,16 +77,12 @@ public class CartController {
 
 
     @DeleteMapping("/deleteItemAuto/{id}")
-    void deleteProductAuto(@PathVariable String  id){
+    void deleteProductAuto(@PathVariable String id) {
 
-        System.out.println("BBBBB"+id);
+        System.out.println("BBBBB" + id);
         cartService.clearCart(id);
 
     }
-
-
-
-
 
 
 }
