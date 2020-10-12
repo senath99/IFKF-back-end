@@ -1,3 +1,4 @@
+
 package com.ITP.IFKFbackend.Dto;
 
 import lombok.AllArgsConstructor;
@@ -18,3 +19,4 @@ public class DonationSort {
 	
 	
 }
+
