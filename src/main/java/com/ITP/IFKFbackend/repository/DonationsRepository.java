@@ -7,6 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 //import com.ITP.IFKFbackend.Dto.DonationSort;
+
+
+//import com.ITP.IFKFbackend.Dto.Donate_Session;
+
+
+
+
 import com.ITP.IFKFbackend.model.Donations;
 
 
@@ -19,12 +26,20 @@ public interface DonationsRepository extends JpaRepository<Donations,Long>{
 	List<Donations> searchQuery(@Param("searchText") String searchText);
 	
 
+
 //	@Query("SELECT new com.ITP.IFKFbackend.Dto.DonationSort(s.sessionId,SUM(d.quantity),e.id,e.type)  FROM Donations d JOIN d.sessions s JOIN d.equipment e  WHERE e.type LIKE %:searchText% " )
 //	List<DonationSort> searchQuantity(@Param("searchText")String searchText);
 //	
 //	
 //	@Query("SELECT new com.ITP.IFKFbackend.Dto.DonationSort(s.sessionId,SUM(d.quantity),e.id,e.type) FROM Donations d JOIN d.sessions s JOIN d.equipment e    GROUP BY s.sessionId,e.id ")
 //	List<DonationSort> findQuantitybySessionId();
+
+	
+
+//	@Query("SELECT new com.ITP.IFKFbackend.Dto.Donate_Session(d.donateID,s.sessionId,d.quantity,d.donateDate,s.instructorName,e.id,e.type) FROM Donations d JOIN d.sessions s JOIN d.equipment e") 
+//	public List<Donate_Session> getjoinInformations();
+
+
 
 
 	
