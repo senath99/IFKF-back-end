@@ -17,8 +17,8 @@ import javax.persistence.Table;
 
 public class Instructor {
 	@Id
-	@Column(name = "instructorId")
-	 private String  instructorId;
+	@Column(name = "instructorId",length=50)
+	private String instructorId ;
 	
 	@Column(name = "name")
 	 private String name;

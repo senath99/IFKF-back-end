@@ -9,11 +9,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-@Inheritance(strategy = InheritanceType.JOINED)
+
 public class User {
 	
 		@Id
-		@Column(name = "userId")
+		@Column(name = "userId",length=50)
 		 private String userId;
 		
 		@Column(name = "password")

@@ -18,7 +18,7 @@ public interface RequestRepository extends JpaRepository<Requests, Long> {
 
 	
 	@Query(" from Requests r JOIN r.instructor i where  i.instructorId = :inID" )
-	public List<Requests> getRequestsByID(@Param("inID") Long id);
+	public List<Requests> getRequestsByID(@Param("inID") String id);
 		
 	@Query("from Requests r  JOIN r.instructor i where  r.status LIKE %:searchText% OR r.Description LIKE  %:searchText% OR i.name LIKE  %:searchText% OR r.type LIKE  %:searchText%" )
 	List<Requests> searchQuery(@Param("searchText") String searchText);

@@ -32,7 +32,16 @@ import lombok.NoArgsConstructor;
 public class Equipment {
 	
 	@Id
-	@GeneratedValue
+	
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Donation_seq")                                                                   
+//    @GenericGenerator(
+//		        name = "Donation_seq", 
+//		        strategy = "com.ITP.IFKFbackend.UniqueIDgenerator.StringPrefixedSequenceIdGenerator", 
+//		        parameters = {
+//		            @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+//		            @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "D"),
+//		            @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
+	
 	private Long id;
 	
 	private String type;
