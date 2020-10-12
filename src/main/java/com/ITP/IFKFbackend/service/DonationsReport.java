@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
-import com.ITP.IFKFbackend.Dto.DonationSort;
 import com.ITP.IFKFbackend.model.Donations;
 import com.ITP.IFKFbackend.model.Equipment;
 import com.ITP.IFKFbackend.repository.DonationsRepository;
@@ -74,30 +73,6 @@ public class DonationsReport {
 			 JasperExportManager.exportReportToPdfFile(jasperPrint, path+"\\ Equipment Report.pdf");
 			
 			 return "Equipment Report Downloaded Successfully in path "+path;
-			
-		
-	}
-	
-	
-	
-	
-	public String getFullDonationReport() throws FileNotFoundException, JRException {
-		
-		   List<DonationSort> donations = donationsrepository.findQuantitybySessionId();
-		//Load a file
-		
-			String path = "C:\\Users\\Senath\\Desktop\\Reports";
-		
-	
-			 File file = ResourceUtils.getFile("classpath:EquipmentQuantity.jrxml");
-			 JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-			 JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(donations);
-			 Map<String, Object> parameters = new HashMap<>();
-		     parameters.put("createdBy", "IFKF - Sri Lanka");
-			 JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-			 JasperExportManager.exportReportToPdfFile(jasperPrint, path+"\\ Donation Full Report.pdf");
-			
-			 return "Donation Full Report Downloaded Successfully in path "+path;
 			
 		
 	}

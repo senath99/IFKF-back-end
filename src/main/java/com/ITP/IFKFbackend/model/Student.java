@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Student {
 	
 	@Id
-	@Column(name = "studentId",length=50)
+	@Column(name = "studentId")
 	 private String  studentId;
 	
 	@Column(name = "name")
@@ -35,8 +35,8 @@ public class Student {
 	@Column(name = "dob")
 	 private Date dob;
 	
-	@Column(name = "session")
-	 private String session;
+	@Column(name = "sessionId")
+	 private String sessionId;
 	
 	@Column(name = "phoneNo")
 	 private String phoneNo;
@@ -48,7 +48,7 @@ public class Student {
 	 }
 	   
 	 public Student(String studentId, String name, String gender, String address, String email, String nic, Date dob,
-			String session, String phoneNo) {
+			String sessionId, String phoneNo) {
 		super();
 		this.studentId = studentId;
 		this.name = name;
@@ -57,7 +57,7 @@ public class Student {
 		this.email = email;
 		this.nic = nic;
 		this.dob = dob;
-		this.session = session;
+		this.sessionId = sessionId;
 		this.phoneNo = phoneNo;
 	}
 	 
@@ -104,11 +104,11 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public String getSession() {
-		return session;
+	public String getSessionId() {
+		return sessionId;
 	}
-	public void setSession(String session) {
-		this.session = session;
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 	public String getPhoneNo() {
 		return phoneNo;
