@@ -2,8 +2,10 @@ package com.ITP.IFKFbackend.service.impl;
 
 import com.ITP.IFKFbackend.Service.CartService;
 import com.ITP.IFKFbackend.model.Cart;
+import com.ITP.IFKFbackend.model.Customer;
 import com.ITP.IFKFbackend.model.Product;
 import com.ITP.IFKFbackend.repository.CartRepository;
+import com.ITP.IFKFbackend.repository.CustomerRepository;
 import com.ITP.IFKFbackend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class CartServiceImpl implements CartService {
     private CartRepository cartRepository;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
 
     @Override
@@ -55,8 +59,8 @@ public class CartServiceImpl implements CartService {
 
 
     @Override
-    public List<Product> getAlProducts(String c001) {
-        List<Object[]> ob = productRepository.getAllBy("C001");
+    public List<Product> getAlProducts(String customerId) {
+        List<Object[]> ob = productRepository.getAllBy(customerId);
         List<Product> item = new ArrayList<>();
 
 
@@ -77,6 +81,37 @@ public class CartServiceImpl implements CartService {
 
         }
         return item;
+    }
+
+    @Override
+    public List<Product> getAlProductsbyuser(String id1) {
+        List<Object[]> ob = productRepository.getAlProductsbyuser(id1);
+        List<Product> item = new ArrayList<>();
+
+
+        for (Object s2[] : ob) {
+            Product product = new Product();
+
+            product.setId(s2[0].toString());
+            product.setBrand(s2[1].toString());
+            product.setDescription(s2[2].toString());
+            product.setPicture((byte[]) s2[3]);
+            product.setPrice(Double.parseDouble(s2[4].toString()));
+            product.setProductname(s2[5].toString());
+            product.setQty(Integer.parseInt(s2[6].toString()));
+
+
+
+            item.add(product);
+
+        }
+        return item;
+    }
+
+    @Override
+    public Customer addtoTable(Customer cust) {
+
+        return customerRepository.save(cust);
     }
 
 
