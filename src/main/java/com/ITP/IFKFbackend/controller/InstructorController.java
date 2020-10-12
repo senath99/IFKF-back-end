@@ -1,5 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ITP.IFKFbackend.model.Instructor;
-import com.ITP.IFKFbackend.model.Student;
 import com.ITP.IFKFbackend.repository.InstructorRepository;
+
+import com.ITP.IFKFbackend.service.InstructorDetailsReport;
+
+import net.sf.jasperreports.engine.JRException;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -28,6 +32,18 @@ public class InstructorController {
 	
 	@Autowired
 	private InstructorRepository instructorRepository;
+	
+	@Autowired
+	private InstructorDetailsReport reportservice;
+	
+
+
+	public InstructorController(InstructorRepository instructorRepository) {
+		super();
+		this.instructorRepository = instructorRepository;
+		
+		
+	}
 	
 	@GetMapping("/instructors")
 	public List<Instructor> getAllInstructors(){
@@ -76,4 +92,14 @@ public class InstructorController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@GetMapping("/instructors/search/{searchText}")
+	public List<Instructor> searchInstructor(@PathVariable  String searchText){
+		return instructorRepository.searchQuery(searchText);
+	}
+	
+@GetMapping("/instructorReport/")
+	
+	public String getReport()  throws FileNotFoundException, JRException{
+		return reportservice.getReport();
+	}
 }

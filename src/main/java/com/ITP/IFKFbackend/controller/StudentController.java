@@ -1,5 +1,6 @@
 package com.ITP.IFKFbackend.controller;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ITP.IFKFbackend.model.Student;
+
+
 import com.ITP.IFKFbackend.repository.StudentRepository;
+
+import com.ITP.IFKFbackend.service.StudentDetailsReport;
+
+import net.sf.jasperreports.engine.JRException;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -27,6 +34,18 @@ public class StudentController {
 	
 	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
+	private StudentDetailsReport reportservice;
+	
+
+
+	public StudentController(StudentRepository studentRepository) {
+		super();
+		this.studentRepository = studentRepository;
+		
+		
+	}
 	
 	@GetMapping("/students")
 	public List<Student> getAllStudents(){
@@ -41,29 +60,24 @@ public class StudentController {
 	
 	
 	@GetMapping("/students/{studentId}")
-
-	ResponseEntity<?> getStudents(@PathVariable String studentId){
-	
-		Optional<Student> students = studentRepository.findById(studentId);
-		
-		return students.map(response -> ResponseEntity.ok().body(response))
-				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-		
-		
+	public Optional<Student> getStudent(@PathVariable String studentId) {
+		return studentRepository.findById(studentId);
+//	ResponseEntity<?> getStudents(@PathVariable String studentId){
+//		Optional<Student> students = studentRepository.findById(studentId);
+//		return students.map(response -> ResponseEntity.ok().body(response))
+//				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@GetMapping("/studentSession/{sessionID}")
-	public List<Student> getStudentbysession(@PathVariable String sessionID){
-	
-			return studentRepository.findBySession(sessionID);
-		
+	@GetMapping("/students/id")
+	public Student getStudentId(){
+		return studentRepository.findTopByOrderByStudentIdDesc();
 	}
 	
 	
 	
 	@PutMapping("/students/{studentId}")
 	public ResponseEntity<Student> updateStudent(
-			@PathVariable Long studentId, @RequestBody Student student){
+			@PathVariable String studentId, @RequestBody Student student){
 		
 
 		Student result = studentRepository.save(student);
@@ -77,10 +91,16 @@ public class StudentController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	//find exams by search query
 	@GetMapping("/students/search/{searchText}")
-	public List<Student> searchExams(@PathVariable String searchText){
+	public List<Student> searchStudent(@PathVariable  String searchText){
 		return studentRepository.searchQuery(searchText);
 	}
+	
+	@GetMapping("/report/{sessionId}")
+	
+	public String getReport(@PathVariable  String sessionId)  throws FileNotFoundException, JRException{
+		return reportservice.getReport(sessionId);
+	}
+	
 	
 }

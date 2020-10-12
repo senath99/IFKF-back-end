@@ -38,8 +38,7 @@ public class Instructor {
 	@Column(name = "dob")
 	 private Date dob;
 	
-	@Column(name = "session")
-	 private String session;
+	
 	
 	@Column(name = "phoneNo")
 	 private String phoneNo;
@@ -71,7 +70,7 @@ public class Instructor {
 		this.email = email;
 		this.nic = nic;
 		this.dob = dob;
-		this.session = session;
+		
 		this.phoneNo = phoneNo;
 		this.qualifications = qualifications;
 		this.experience = experience;
@@ -136,13 +135,7 @@ public class Instructor {
 		this.dob = dob;
 	}
 
-	public String getSession() {
-		return session;
-	}
-
-	public void setSession(String session) {
-		this.session = session;
-	}
+	
 
 	public String getPhoneNo() {
 		return phoneNo;

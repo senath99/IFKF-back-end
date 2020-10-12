@@ -36,7 +36,7 @@ public class Attendance {
 		return attendanceID;
 	}
 
-	public Long getAttendanceID() {
+	public Long getAttendanceID1() {
 		return attendanceID;
 	}
 

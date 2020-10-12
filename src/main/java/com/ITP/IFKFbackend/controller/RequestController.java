@@ -52,12 +52,12 @@ public class RequestController {
 		
 	}
 	
-	@PostMapping("/requests")
-	ResponseEntity<Requests> createEquipment( @RequestBody Requests requests)throws URISyntaxException{
-		  Requests result=  requestRepository.save(requests);
-		  return ResponseEntity.created(new URI("/IFKF/requests" + result.getId())).body(result); 
-		
-		}
+//	@PostMapping("/requests")
+//	ResponseEntity<Requests> createEquipment( @RequestBody Requests requests)throws URISyntaxException{
+//		  Requests result=  requestRepository.save(requests);
+//		  return ResponseEntity.created(new URI("/IFKF/requests" + result.getId())).body(result); 
+//		
+//		}
 	
 //
 //	
