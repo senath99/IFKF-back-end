@@ -25,7 +25,21 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Cart addedToCart(Cart cart) {
-        return cartRepository.save(cart);
+
+        ArrayList<Product> productArrayList = new ArrayList<>();
+        System.out.println("size:"+this.getAlProducts(cart.getCustomer().getCustId()).size());
+        this.getAlProducts(cart.getCustomer().getCustId()).forEach(
+                //lamda experssion
+                product -> {
+                    if(cart.getProduct().getId().equals(product.getId()))
+                        productArrayList.add(product);
+                    System.out.println("Product:"+product.getId());
+                }
+        );
+        if (productArrayList.size() == 0)
+            return cartRepository.save(cart);
+        else
+            return cart;
     }
 
     //get all the details of cart
@@ -85,6 +99,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public List<Product> getAlProductsbyuser(String id1) {
+
         List<Object[]> ob = productRepository.getAlProductsbyuser(id1);
         List<Product> item = new ArrayList<>();
 
